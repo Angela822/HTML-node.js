@@ -1,0 +1,443 @@
+<!DOCTYPE HTML>
+<!--
+	Strongly Typed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Take Book</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+
+		<!--<link rel="stylesheet" href="assets/css/main-test-3.css"/>-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!---書本移動--->
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.jscrollpane.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />	
+	    <link rel="stylesheet" type="text/css" href="css/reset.css" />	
+		<link rel="stylesheet" href="css/indexMain.css" />
+		
+		<!--web icon-->
+    	<link rel="Shortcut Icon" type="image/x-icon" href="images/logo.png" />
+	</head>
+	<body class="homepage">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header" class="container">
+
+						<!-- Logo -->
+							<h1 id="logo"><a href="index.html">Take Book</a></h1>
+							<p>來看看大家寫的筆記和錄音，找本自己喜歡的書吧.</p>
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+                                	<!--首頁-->
+									<li><a class="icon fa-home" href="index.html"><span>首頁</span></a></li>
+                                    <!-------------------------------------------------------------------------->
+                                    <!--排行榜-->
+									<li>
+										<a href="" class="icon fa-bar-chart-o"><span>排行榜</span></a>
+										<ul>
+											<li><a href="bookRank.html">熱門書排行榜</a></li>
+											<li><a href="pointRank.html">愛閱點排行榜</a></li>
+										</ul>
+									</li>
+                                   	<!-------------------------------------------------------------------------->
+                                   	<!--討論區-->
+									<li><a class="icon fa-cog" href="discuss.html"><span>討論區</span></a></li>
+                                    <!--網站規則-->
+									<li><a class="icon fa-retweet" href="rule.html"><span>網站規則</span></a></li>
+                                    <!--個人資訊-->
+									<li><a class="icon fa-sitemap" href="personal.html"><span>個人資訊</span></a></li>
+								</ul>
+                                
+                                <!--login button-->
+                                <button onclick="document.getElementById('login').style.display='block'" class="button logIn" style="width:auto;">登入</button>
+                                
+                                <div id="login" class="modal">
+                                  <form class="modal-content animate" action="/action_page.php">
+                                    <div class="imgcontainer">
+                                      <span onclick="document.getElementById('login').style.display='none'" class="close" title="關閉視窗">&times;</span>
+                                      <img src="images/avatar.png" width="130" height="110" alt="Avatar" class="avatar">
+                                    </div>
+                                
+                                    <div class="logcon">
+                                      <label><b>Username</b></label>
+                                      <input type="text" placeholder="Enter Username" name="uname" required>
+                                
+                                      <label><b>Password</b></label>
+                                      <input type="password" placeholder="Enter Password" name="psw" required>
+                                        
+                                      <button type="submit" class="In">登入</button>
+                                      
+                                      <!--
+                                      <label>
+                                        <input type="checkbox" checked="checked">Remember me
+                                      </label>
+                                      -->
+                                    </div>
+                                	
+                                    <div class="logcon foot" style="background-color:#f1f1f1">
+                                      
+                                      <button type="button" onclick="document.getElementById('login').style.display='none'" class="cancelbtn">關閉</button>
+                                      <!--<span class="psw">Forgot <a href="#">password?</a></span>-->
+                                      
+                                    </div>
+                                  </form>
+                                </div>
+                             <!--------------------------->
+                                
+							</nav>
+
+					</div>
+				</div>
+
+
+			<div id="ca-container" class="ca-container">
+				<div class="ca-wrapper">
+					<div class="ca-item ca-item-1">
+						<div class="ca-item-main">
+							<div class="ca-icon"></div>
+							<h3>貓貓蟲咖波:食物世界超棒</h3>
+							<h4>
+								<!---<span class="ca-quote">;&ldquo;</span>-->
+								<span>誰是咖波？咖波是長得像貓又像蟲的不明物種，喜歡撒嬌，愛搗蛋。平常有六隻腳，身體會伸縮不固定。看到什麼都想吃，明明是超級吃貨卻超討厭蔬菜。</span>
+							</h4>
+								<a href="#" class="ca-more">more...</a>
+						</div>
+						<div class="ca-content-wrapper">
+							<div class="ca-content">
+								<h6>貓貓蟲咖波:食物世界超棒</h6>
+								<a href="#" class="ca-close">close</a>
+								<div class="ca-content-text">
+									<p>歡迎進入咖波的世界！</p>
+									<p>咖波的日常就是不斷的吃吃吃和惡作劇，還有他的家人狗狗與飼主拉拉，以及其他「食物」們的日常生活詼諧逗趣，帶給你萌度爆表的獵奇向作品初體驗！
+</p>
+									<p>《貓貓蟲咖波-食物世界超棒》收錄Line Webtoon上51至100話內容，更獨家收錄短篇精選與特別篇，邀請你一起進入咖波無厘頭又搞笑的世界！</p>
+								</div>
+								<ul>
+									<li><a href="#">Read more</a></li>
+									<li><a href="#">Share this</a></li>
+									<li><a href="#">Become a member</a></li>
+									<li><a href="#">Donate</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="ca-item ca-item-2">
+						<div class="ca-item-main">
+							<div class="ca-icon"></div>
+							<h3>Respect Life &amp; Rights</h3>
+							<h4>
+								
+								<span>I hold that the more helpless a creature, the more entitled it is to protection by man from the cruelty of man.</span>
+							</h4>
+								<a href="#" class="ca-more">more...</a>
+						</div>
+						<div class="ca-content-wrapper">
+							<div class="ca-content">
+								<h6>Would you eat your dog?</h6>
+								<a href="#" class="ca-close">close</a>
+								<div class="ca-content-text">
+									<p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
+									<p>When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream;</p>
+									<p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+								</div>
+								<ul>
+									<li><a href="#">Read more</a></li>
+									<li><a href="#">Share this</a></li>
+									<li><a href="#">Become a member</a></li>
+									<li><a href="#">Donate</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="ca-item ca-item-3">
+						<div class="ca-item-main">
+							<div class="ca-icon"></div>
+							<h3>Become 100% meat-free</h3>
+							<h4>
+								
+								<span>I feel that spiritual progress does demand at some stage that we should cease to kill our fellow creatures for the satisfaction of our bodily wants.</span>
+							</h4>
+								<a href="#" class="ca-more">more...</a>
+						</div>
+						<div class="ca-content-wrapper">
+							<div class="ca-content">
+								<h6>You can change the world</h6>
+								<a href="#" class="ca-close">close</a>
+								<div class="ca-content-text">
+									<p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
+									<p>When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream;</p>
+									<p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+								</div>
+								<ul>
+									<li><a href="#">Read more</a></li>
+									<li><a href="#">Share this</a></li>
+									<li><a href="#">Become a member</a></li>
+									<li><a href="#">Donate</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="ca-item ca-item-4">
+						<div class="ca-item-main">
+							<div class="ca-icon"></div>
+							<h3>Make a difference</h3>
+							<h4>
+								
+								<span>A man is but the product of his thoughts what he thinks, he becomes.</span>
+							</h4>
+								<a href="#" class="ca-more">more...</a>
+						</div>
+						<div class="ca-content-wrapper">
+							<div class="ca-content">
+								<h6>Think globally, act locally</h6>
+								<a href="#" class="ca-close">close</a>
+								<div class="ca-content-text">
+									<p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
+									<p>When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream;</p>
+									<p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+								</div>
+								<ul>
+									<li><a href="#">Read more</a></li>
+									<li><a href="#">Share this</a></li>
+									<li><a href="#">Become a member</a></li>
+									<li><a href="#">Donate</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+				
+			<!-- Features3 -->
+				<div id="features-wrapper">
+					<section id="features" class="container">
+						<header>
+							<h2><strong>熱門推薦</strong><p/>-廣受注目的書籍-</h2>
+						</header>
+						<div class="row">
+							<div class="4u 12u(mobile)">
+
+								<!-- Feature -->
+									<section>
+										<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+										<header>
+											<h3>貓貓蟲咖波：食物世界超棒</h3>
+										</header>
+										百分之百台灣原汁原味獨創角色!<br />
+									國際粉絲突破50萬!<br />
+										Line貼圖排行榜上居高不下長青角色!</p>   
+									</section>
+
+							</div>
+							<div class="4u 12u(mobile)">
+
+								<!-- Feature -->
+									<section>
+										<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+										<header>
+											<h3>你的善良必須有點鋒芒</h3>
+										</header>
+										<p>幾年來，幾乎所有的竹科企業我都去過了，和企業的人有所接觸後，我才知道我過去有「知識偏執」的狀況，但我並沒有真正認識30歲上下的職場工作人員。</p>
+									</section>
+
+							</div>
+							<div class="4u 12u(mobile)">
+
+								<!-- Feature -->
+									<section>
+										<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+										<header>
+											<h3>朋友與敵人</h3>
+										</header>
+										<p>他的房子只是一個showroom。可是家不是showroom，家是讓你可以放鬆自在、活得像人的地方，家是因為住在裡面的人有自己的渴望、自己的感覺，才會有自己的風格。</p>
+									</section>
+
+							</div>
+						</div>
+						<ul class="actions">
+							<li><a href="#" class="button icon fa-file">More</a></li>
+						</ul>
+					</section>
+				</div>
+				
+				
+			<!-- Banner -->
+				<div id="banner-wrapper">
+					<div class="inner">
+						<section id="banner" class="container">
+							<p>我相信，那一切都是種子。只有經過埋葬，才有生機。<br />
+							--顧城《顧城詩集.給安徒生》</p>
+						</section>
+					</div>
+				</div>
+
+		<!-- Wrapper -第三樣板->
+			<!-- Section -->
+			<div class="side">
+				<section class="theThree">
+					<header class="major">
+						<h2>Ipsum sed dolor</h2>
+					</header>
+					<div class="posts">
+						<article>
+							<a href="#" class="image"><img src="images/pic001.jpg" alt="" /></a>
+							<h3>Interdum aenean</h3>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							<ul class="actions">
+								<li><a href="#" class="button">More</a></li>
+							</ul>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="images/pic002.jpg" alt="" /></a>
+							<h3>Nulla amet dolore</h3>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							<ul class="actions">
+								<li><a href="#" class="button">More</a></li>
+							</ul>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="images/pic003.jpg" alt="" /></a>
+							<h3>Tempus ullamcorper</h3>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							<ul class="actions">
+								<li><a href="#" class="button">More</a></li>
+							</ul>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="images/pic004.jpg" alt="" /></a>
+							<h3>Sed etiam facilis</h3>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							<ul class="actions">
+								<li><a href="#" class="button">More</a></li>
+							</ul>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="images/pic005.jpg" alt="" /></a>
+							<h3>Feugiat lorem aenean</h3>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							<ul class="actions">
+								<li><a href="#" class="button">More</a></li>
+							</ul>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="images/pic006.jpg" alt="" /></a>
+							<h3>Amet varius aliquam</h3>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							<ul class="actions">
+								<li><a href="#" class="button">More</a></li>
+							</ul>
+						</article>
+					</div>
+				</section>				
+			</div>
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<div id="footer" class="container">
+						<header>
+							<h2>Questions or comments? <strong>Get in touch:</strong></h2>
+						</header>
+						<div class="row">
+							<div class="6u 12u(mobile)">
+								<section>
+									<form method="post" action="#">
+										<div class="row 50%">
+											<div class="6u 12u(mobile)">
+												<input name="name" placeholder="Name" type="text" />
+											</div>
+											<div class="6u 12u(mobile)">
+												<input name="email" placeholder="Email" type="text" />
+											</div>
+										</div>
+										<div class="row 50%">
+											<div class="12u">
+												<textarea name="message" placeholder="Message"></textarea>
+											</div>
+										</div>
+										<div class="row 50%">
+											<div class="12u">
+												<a href="#" class="form-button-submit button icon fa-envelope">Send Message</a>
+											</div>
+										</div>
+									</form>
+								</section>
+							</div>
+							<div class="6u 12u(mobile)">
+								<section>
+									<p>Erat lorem ipsum veroeros consequat magna tempus lorem ipsum consequat Phaselamet
+									mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique. Curabitur
+									leo nibh, rutrum eu malesuada.</p>
+									<div class="row">
+										<div class="6u 12u(mobile)">
+											<ul class="icons">
+												<li class="icon fa-home">
+													1234 Somewhere Road<br />
+													Nashville, TN 00000<br />
+													USA
+												</li>
+												<li class="icon fa-phone">
+													(000) 000-0000
+												</li>
+												<li class="icon fa-envelope">
+													<a href="#">info@untitled.tld</a>
+												</li>
+											</ul>
+										</div>
+										<div class="6u 12u(mobile)">
+											<ul class="icons">
+												<li class="icon fa-twitter">
+													<a href="#">@untitled-tld</a>
+												</li>
+												<li class="icon fa-instagram">
+													<a href="#">instagram.com/untitled-tld</a>
+												</li>
+												<li class="icon fa-dribbble">
+													<a href="#">dribbble.com/untitled-tld</a>
+												</li>
+												<li class="icon fa-facebook">
+													<a href="#">facebook.com/untitled-tld</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</section>
+							</div>
+						</div>
+					</div>
+					<div id="copyright" class="container">
+						<ul class="links">
+							<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+				</div>
+
+		<!-- Scripts -->        	
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<!--書本移動--->
+			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+			<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
+			<!-- the jScrollPane script -->
+			<script type="text/javascript" src="assets/js/jquery.mousewheel.js"></script>
+			<script type="text/javascript" src="assets/js/jquery.contentcarousel.js"></script>
+			<script type="text/javascript">
+				$('#ca-container').contentcarousel();
+			</script>
+       		<!------------>
+            <script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/skel-viewport.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/index.js"></script>
+
+	</body>
+</html>
