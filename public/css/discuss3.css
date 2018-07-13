@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+/*---------------------------*/
+/* 定義網頁                   */
+/*---------------------------*/
+p.title{
+	margin:10px 0;
+	font-size:16px;
+	font-weight:bold;
+	line-height:1.6em;
+}
+
+.btn{
+	width:80px;
+	height:40px;
+	margin-top:12px;
+	line-height:1.4em;
+
+}
+
+p.collect{
+	margin-top:20px;
+}

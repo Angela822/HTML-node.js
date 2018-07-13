@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Take Book | 書本排行榜</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<!--web icon-->
+    	<link rel="Shortcut Icon" type="image/x-icon" href="images/logo.png" />
+
+		<!--[if lte IE 8]><script src="./js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="./css/menu.css" />
+		<link rel="stylesheet" href="./css/rank.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="./css/ie8.css" /><![endif]-->
+	</head>
+	<body class="left-sidebar">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header" class="container">
+
+						<!-- Logo -->
+							<h2 class="logo"><a href="/index"><img src="images/TITLE.png" width="260" height="57"></a></h2>
+							
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+                                	<!--首頁-->
+									<li><a class="icon fa-home" href="/#"><span>首頁</span></a></li>
+                                    <!-------------------------------------------------------------------------->
+                                    <!--排行榜-->
+									<li>
+										<a href="#" class="icon fa-bar-chart-o"><span>排行榜</span></a>
+										<ul>
+											<li><a href="/bookrank">熱門書排行榜</a></li>
+											<li><a href="/pointrank">文青度排行榜</a></li>
+										</ul>
+									</li>
+                                   	<!-------------------------------------------------------------------------->
+                                   	<!--討論區-->
+									<li><a class="icon fa-cog" href="discuss"><span>討論區</span></a></li>
+                                    <!--網站規則-->
+									<li><a class="icon fa-retweet" href="rules"><span>網站規則</span></a></li>                                    
+								</ul>
+							</nav>
+
+					</div>
+				</div>
+
+			<!-- Main -->
+				<div id="main-wrapper">
+					<div id="main" class="container">
+						<div class="row">
+
+							<!-- Sidebar -->
+								<div id="sidebar" class="4u 12u(mobile)">
+
+									<!-- Excerpts -->
+										<section>
+											<ul class="divided">
+												
+
+													<!-- Excerpt -->
+														<article class="box excerpt">
+                                                            <nav id="menu">
+                                                                <header class="major">
+                                                                    <h2>分類 Category</h2>
+                                                                </header>
+                                                            <ul>
+                                                               
+                                                               
+                                                                 <li>
+                                                                    <span class="opener"><a href="#cat_01">2017</a></span>
+                                                                    <ul>
+                                                                        <li><a href="#">1</a></li>
+                                                                        <li><a href="#">2</a></li>
+                                                                        <li><a href="#">3</a></li>
+                                                                        <li><a href="#">Feugiat Veroeros</a></li>
+                                                                    </ul>
+                                                                    
+                                                                </li>
+                                                                
+                                                               
+                                                                <li>
+                                                                    <span class="opener"><a href="#cat_01">2016</a></span>
+                                                                    <ul>
+                                                                        <li><a href="#">Lorem Dolor</a></li>
+                                                                        <li><a href="#">Ipsum Adipiscing</a></li>
+                                                                        <li><a href="#">Tempus Magna</a></li>
+                                                                        <li><a href="#">Feugiat Veroeros</a></li>
+                                                                    </ul>
+                                                                    
+                                                                </li>
+                                                            </ul>
+                                                            </nav>
+                                                        </article>
+	
+
+												</li>
+											
+											</ul>
+										</section>
+
+
+								</div>
+
+							<!-- Content -->
+						<div id="content" class="8u 12u(mobile) important(mobile)">
+                              <div id="products_contents" >
+									
+							<!-- ▼▼分類1從此開始▼▼ -->
+							   <p align="left" class="text0" >本月熱門書排行  BOOK RANK</h3>
+								
+								
+								<ul>
+									<!-- ▼▼商品1從此開始▼▼ -->
+									<% for(var i=0; i<data.length; i++) {%>
+									<li class="clearfix">
+										<h1  align="left">Top.<%= data[i].serNo %></h1>
+										
+                                        <div class="clad" clad >
+                                        <p class="imageView"><a data-fancybox="gallery" href="<%= data[i].picture %>">
+                                        <img  class="bookpic" src="<%= data[i].picture %>" alt="黃椒 照片" width="180" height="180" align="absmiddle" /></a></p>
+										<h3><a href="/discuss2?bookName=<%= data[i].bookName %>"> <%= data[i].bookName %> </a></h3>
+                                           
+                                          
+                                          <p class="price"></p>
+                                          <p align="left" class="text1" >作者:  <%= data[i].author %> 著<br />
+                                            出版社: <%= data[i].publisher %> 出版</p>
+                                          <p align="left" class="text2" > <%= data[i].content %> </p>
+                                        </div>
+                                      <% } %>     
+                                       
+									<!-- ▲▲商品1到此為止▲▲ -->
+									<!-- ▼▼商品2從此開始▼▼ -->
+                                    
+                                  
+								
+								<p align="left" class="pagetop"><a href="/bookrank">回到本頁最上方</a></p>
+							</li>
+							<!-- ▲▲分類5到此為止▲▲ -->
+						
+				  </div>
+					
+				</div>
+
+			<!-- Footer -->
+			<div id="footer-wrapper">
+					<div id="footer" class="container">
+						<header>
+							<h2><strong>About Us </strong></h2>
+						</header>
+						<div class="row">
+							<div class="6u 12u(mobile)">
+								<section>
+									<p>Erat lorem ipsum veroeros consequat magna tempus lorem ipsum consequat Phaselamet
+									mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique. Curabitur
+									leo nibh, rutrum eu malesuada.</p>
+									</form>
+								</section>
+							</div>
+							<div class="6u 12u(mobile)">
+								<section>
+									<div class="row">
+										<div class="6u 12u(mobile)">
+											<ul class="icons">
+												<li class="icon fa-home">
+													100台北市<br />
+													中正區濟南路一段321號
+												</li>
+												<li class="icon fa-phone">
+													(000) 000-0000
+												</li>
+												<li class="icon fa-envelope">
+													<a href="#">107511@ntub.edu.tw</a>
+												</li>
+											</ul>
+										</div>
+										<div class="6u 12u(mobile)">
+											<ul class="icons">
+												<li class="icon fa-twitter">
+													<a href="#">@untitled-tld</a>
+												</li>
+												<li class="icon fa-instagram">
+													<a href="#">instagram.com/untitled-tld</a>
+												</li>
+												<li class="icon fa-facebook">
+													<a href="#">facebook.com/untitled-tld</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</section>
+							</div>
+						</div>
+					</div>
+
+		<!-- Scripts -->
+			<script src="./js/jquery.min.js"></script>
+			<script src="./js/jquery.dropotron.min.js"></script>
+			<script src="./js/skel.min.js"></script>
+			<script src="./js/skel-viewport.min.js"></script>
+			<script src="./js/util.js"></script>
+			<!--[if lte IE 8]><script src="./js/ie/respond.min.js"></script><![endif]-->
+			<script src="./js/rank.js"></script>
+			<script src="./js/js.js"></script>
+			<script src="./js/main.js"></script>
+			<script src="./js/text2.js"></script>
+	</body>
+</html>

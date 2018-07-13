@@ -1,0 +1,246 @@
+<!DOCTYPE HTML>
+<!--
+	Strongly Typed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Take Book | 個人資訊</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/personal.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+
+		<!--web icon-->
+    	<link rel="Shortcut Icon" type="image/x-icon" href="images/logo.png" />
+	</head>
+    
+	<body class="left-sidebar">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header" class="container">
+
+						<!-- Logo -->
+							<h2 class="logo"><a href="index.html"><img src="images/TITLE.png" width="260" height="57"></a></h2>
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+                                	<!--首頁-->
+									<li><a class="icon fa-home" href="index.html"><span>首頁</span></a></li>
+                                    <!-------------------------------------------------------------------------->
+                                    <!--排行榜-->
+									<li>
+										<a href="#" class="icon fa-bar-chart-o"><span>排行榜</span></a>
+										<ul>
+											<li><a href="bookRank.html">熱門書排行榜</a></li>
+											<li><a href="pointRank.html">愛閱點排行榜</a></li>
+										</ul>
+									</li>
+                                   	<!-------------------------------------------------------------------------->
+                                   	<!--討論區-->
+									<li><a class="icon fa-cog" href="discuss.html"><span>討論區</span></a></li>
+                                    <!--網站規則-->
+									<li><a class="icon fa-retweet" href="rule.html"><span>網站規則</span></a></li>
+                                    <!--個人資訊-->
+									<li><a class="icon fa-sitemap" href="personal.html"><span>個人資訊</span></a></li>
+								</ul>
+							</nav>
+					</div>
+				</div>
+
+
+			<!-- Main -->
+				<div id="main-wrapper">
+					<div id="main" class="container">
+						<div class="row">
+
+							<!-- Sidebar -->
+								<div id="sidebar" class="4u 12u(mobile)">
+
+									<!-- Excerpts -->
+										<section>
+											<ul class="divided">
+                                            
+												<li>
+													<!-- Excerpt -->
+														<article class="box excerpt">
+															<header>
+																<p class="photo"><img src="<%= "images/" + personalData[0].avatar %>" width="120" height="120"></p>
+																<h3><%= personalData[0].nickName %></h3>
+                                                                <p class="persign"><%= personalData[0].sign %></p>
+                                                                <!--<span class="level">Lv.20</span>-->
+																<a href="\personal2" class="button">編輯個資</a>
+															</header>
+                                                            <p class="clear"></p>
+														</article>
+												</li>
+                                                
+												
+												<li>
+                                                
+                                                <!-- Excerpt -->
+														<article class="box excerpt">
+															<header>
+																<h4>動態消息</h4>
+															</header>
+															<ul>
+																<li>
+																	<p class="photo"><img src="<%= "images/" + messengeData[0].avatar %>" width="50" height="50"></p>
+																	<p class="persign1"><strong><%= messengeData[0].nickName %></strong>回復了你<strong><%= messengeData[0].notetitle %></strong>的筆記</p>
+																</li>
+																
+															</ul>	
+																
+																
+														</article>
+
+												</li>
+												<li>
+
+													
+
+													<!-- Excerpt -->
+														<article class="box excerpt">
+															<header>
+																<h4>你可能會喜歡</h4>
+															</header>
+															<ul>
+																<ul>
+																<li>
+																	<section>
+																		<p class="picBook">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/pic1.jpg" width="180" height="200"/></p>
+																	</section>
+																	<article>
+																		<h2>貓貓蟲咖波</h2>
+																		<p>史上最萌的獵奇向作品，滿滿的補血元素最適合疲累一整天的你！
+
+　　咖波是長得像貓又像蟲的不明物種，喜歡撒嬌，愛搗蛋。
+　　平常有六隻腳，身體會伸縮不固定。看到什麼都想吃，明明是超級吃貨卻超討厭蔬菜。
+　　咖波的日常就是不斷的吃吃吃和惡作劇，還有他的家人狗狗與飼主拉拉，以及其他「食物」們的日常生活詼諧逗趣，帶給你萌度爆表的獵奇向作品初體驗！
+
+　　讀者一致肯定：「有點獵奇又愛賣萌的療癒感真是讓人鼻血狂噴啊！」</p>
+																		<a href="discuss3.html" class="button">前往...</a>
+																	</article>
+																</li>
+																</ul>
+															</ul>
+														</article>
+
+												</li>
+											</ul>
+										</section>
+								</div>
+                                
+                                
+                     <!-- Content -->
+                          <div id="content" class="8u 12u(mobile) important(mobile)">
+                             <!-- main -->
+                             
+                                <div id="collectionLarge">
+                                <p class="title">新增筆記</p>
+                                    <div class="row">
+            <div class="col-md-12">
+                <form role="form" action="/productAdd">
+                    <div class="form-group">                     
+                        <label>圖書名稱</label>  
+                                         
+                    </div>
+                    
+                    <div class="form-group">                     
+                        <label>撰寫筆記</label>
+                                <div id="editor">
+										<form>
+										<textarea id="editor1">
+										
+										</textarea>
+										</form>
+                                </div>
+                    </div>
+                    
+                    <div class="form-group">
+                    	<label>是否公開&nbsp;:&nbsp;&nbsp;</label>
+                    	<input type="radio" name="location" value="Taipei"> 是&nbsp;&nbsp; </input>
+                        <input type="radio" name="location" value="Taipei"> 否<br><br> </input>
+                    </div>                                                                          
+
+                    <button type="submit" class="btn btn-default">
+                        新增
+                    </button>
+                </form>                
+            </div>
+        </div>    
+                          </div>
+                                
+                             
+			<!-- Footer -->
+				<!--<div id="footer-wrapper">
+					<div id="footer" class="container">
+						<header>
+							<h2><strong>About Us </strong></h2>
+						</header>
+						<div class="row">
+							<div class="6u 12u(mobile)">
+								<section>
+									<p>Erat lorem ipsum veroeros consequat magna tempus lorem ipsum consequat Phaselamet
+									mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique. Curabitur
+									leo nibh, rutrum eu malesuada.</p>
+									</form>
+								</section>
+							</div>
+							<div class="6u 12u(mobile)">
+								<section>
+									<div class="row">
+										<div class="6u 12u(mobile)">
+											<ul class="icons">
+												<li class="icon fa-home">
+													100台北市<br />
+													中正區濟南路一段321號
+												</li>
+												<li class="icon fa-phone">
+													(000) 000-0000
+												</li>
+												<li class="icon fa-envelope">
+													<a href="#">10356@ntub.edu.tw</a>
+												</li>
+											</ul>
+										</div>
+										<div class="6u 12u(mobile)">
+											<ul class="icons">
+												<li class="icon fa-twitter">
+													<a href="#">@untitled-tld</a>
+												</li>
+												<li class="icon fa-instagram">
+													<a href="#">instagram.com/untitled-tld</a>
+												</li>
+												<li class="icon fa-facebook">
+													<a href="#">facebook.com/untitled-tld</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</section>
+							</div>
+						</div>
+					</div>
+                    -->
+		</div>
+
+		<!-- Scripts -->
+		    <script src="../ckeditor/ckeditor.js"></script>
+			<script>CKEDITOR.replace( 'editor1' );</script>
+			<script src="//cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+        	<script src="js/jquery.min.js"></script>
+			<script src="js/jquery.dropotron.min.js"></script>
+			<script src="js/skel.min.js"></script>
+			<script src="js/skel-viewport.min.js"></script>
+			<script src="js/util.js"></script>
+			<!--[if lte IE 8]><script src="js/ie/respond.min.js"></script><![endif]-->
+			<script src="js/personal.js"></script>
+	</body>
+</html>
