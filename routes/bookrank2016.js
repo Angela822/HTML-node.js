@@ -16,16 +16,16 @@ router.get('/', function(req, res, next) {
             res.render('bookrank', {bookdata:results});
         } 
 	});	*/
-	pool.query('SELECT a.rankNo,a.date,b.bookName,b.picture,b.author,b.publisher,b.content FROM rankbook a INNER JOIN book b ON a.bookNo=b.bookNo WHERE a.date LIKE "2018%" ', function(error, rows, fields) {       
-		if (error) {
-			res.render('bookrank', {data:[]});
+	pool.query('SELECT a.rankNo,a.date,b.bookName,b.picture,b.author,b.publisher,b.content FROM rankbook a INNER JOIN book b ON a.bookNo=b.bookNo WHERE a.date LIKE "2016%"', function(error, rows, fields) {       
+		if (error){
+			res.render('bookrank2016', {data:[]});
 		}else{
-			res.render('bookrank', {data:rows});
+			res.render('bookrank2016', {data:rows});
 		}		
     });
 });
 
 module.exports = router;
 
-
+//SELECT a.rankNo,a.date,b.bookName,b.picture,b.author,b.publisher,b.content FROM rankbook a INNER JOIN book b ON a.bookNo=b.bookNo WHERE a.date LIKE '2016%'
 

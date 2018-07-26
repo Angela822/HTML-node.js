@@ -43,6 +43,10 @@ var userDiscuss = require('./routes/userDiscuss');
 var userDiscuss2 = require('./routes/userDiscuss2');
 var userDiscuss3 = require('./routes/userDiscuss3');
 var userRules = require('./routes/userRules');
+var bookrank2017 = require('./routes/bookrank2017');
+var bookrank2016 = require('./routes/bookrank2016');
+var pointrank2017 = require('./routes/pointrank2017');
+var pointrank2016 = require('./routes/pointrank2016');
 //-------------------------------------------------------
 // 增加以下的require index中的register
 //-------------------------------------------------------
@@ -117,6 +121,10 @@ app.use('/userDiscuss',userDiscuss);
 app.use('/userDiscuss2', userDiscuss2);
 app.use('/userDiscuss3', userDiscuss3);
 app.use('/userRules', userRules);
+app.use('/bookrank2017',bookrank2017);
+app.use('/bookrank2016',bookrank2016);
+app.use('/pointrank2017',pointrank2017);
+app.use('/pointrank2016',pointrank2016);
 //-------------------------------------------------------
 // 增加以下的app.use() index中的register
 //-------------------------------------------------------

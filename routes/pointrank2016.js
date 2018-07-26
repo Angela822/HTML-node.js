@@ -11,13 +11,13 @@ var pool = require('./lib/db.js');
 router.get('/', function(req, res, next) {
     var pointData;
     var rankData;
-	pool.query('SELECT a.point, a.rankNo,b.avatar,b.nickName,c.title,c.picture FROM rankperson a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN title AS c ON c.userid=b.userid WHERE a.serNo%2<>0 AND a.date LIKE "2018%" ', function(err, results) {       
+	pool.query('SELECT a.point, a.rankNo,b.avatar,b.nickName,c.title,c.picture FROM rankperson a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN title AS c ON c.userid=b.userid WHERE a.serNo%2<>0 AND a.date LIKE "2016%"', function(err, results) {       
 		if (err) {
 			pointData=[];
 		}else{
 			pointData=results;
 		}
-        pool.query('SELECT a.point, a.rankNo,b.avatar,b.nickName,c.title,c.picture FROM rankperson a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN title AS c ON c.userid=b.userid WHERE a.serNo%2=0 AND a.date LIKE "2018%"', function(err, results) {
+        pool.query('SELECT a.point, a.rankNo,b.avatar,b.nickName,c.title,c.picture FROM rankperson a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN title AS c ON c.userid=b.userid WHERE a.serNo%2=0 AND a.date LIKE "2016%"', function(err, results) {
             if (err) {
                 rankData=[];
             }else{
@@ -27,7 +27,7 @@ router.get('/', function(req, res, next) {
             //---------------------------------   
             // 將供應商及產品型態資料一起送出
             //---------------------------------
-            res.render('pointrank', {pointData:pointData, rankData:rankData});
+            res.render('pointrank2016', {pointData:pointData, rankData:rankData});
        }); 
 			
     });
