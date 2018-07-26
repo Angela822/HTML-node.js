@@ -67,7 +67,7 @@
                                                                 </header>
                                                             <ul>
                                                                <li>
-                                                                    <span class="opener"><a href="#cat_01">2017</a></span>
+                                                                    <span class="opener"><a href="/pointrank2017">2017</a></span>
                                                                     <ul>
                                                                         <li><a href="#">1</a></li>
                                                                         <li><a href="#">2</a></li>
@@ -76,7 +76,7 @@
                                                                     </ul>
                                                                 </li>
                                                                 <li>
-                                                                    <span class="opener"><a href="#cat_01">2016</a></span>
+                                                                    <span class="opener"><a href="/pointrank2016">2016</a></span>
                                                                     <ul>
                                                                         <li><a href="#">1</a></li>
                                                                         <li><a href="#">2</a></li>
@@ -112,7 +112,7 @@
 						   <p align="left" class="text0" >本月文青度排行  PERSON RANK</h3>
                             <% for(var i=0; i<pointData.length; i++) {%>
                                <table class="point">
-									<tr><td><h1  align="left">NO.<%= pointData[i].serNo %></h1>
+									<tr><td><h1  align="left">NO.<%= pointData[i].rankNo %></h1>
 									 <p align="left" class="photo"></p>
 									 <img class="logo" src="images/<%= pointData[i].avatar %>" width="100" height="100" align="absmiddle" /></p></td></tr>   
 									<tr><td><p align="left" class="text1" align="left"><%= pointData[i].title %></h3></td></tr>
@@ -124,7 +124,7 @@
 							<% for(var i=0; i<rankData.length; i++) {%>
                             <table class="point1">
                                     
-									<td><tr><h1 align="left">No.<%= rankData[i].serNo %></h1></tr></td>
+									<td><tr><h1 align="left">No.<%= rankData[i].rankNo %></h1></tr></td>
                                     <td><tr><p align="left" class="photo"></tr></td>
 									<td><tr><img class="logo"src="images/<%= rankData[i].avatar %>" width="100" height="100" align="absmiddle"/></p></tr></td>
 									<td><tr><p align="left" class="text2" align="left"><%= rankData[i].title %></h3></tr></td>

@@ -1,16 +1,15 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Take Book | 書本排行榜</title>
+		<title>Take Book | 文青排行榜</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="./js/ie/html5shiv.js"></script><![endif]-->
 		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<!--web icon-->
     	<link rel="Shortcut Icon" type="image/x-icon" href="images/logo.png" />
-
-		<!--[if lte IE 8]><script src="./js/ie/html5shiv.js"></script><![endif]-->
         <link rel="stylesheet" href="./css/menu.css" />
-		<link rel="stylesheet" href="./css/rank.css" />
+		<link rel="stylesheet" href="./css/pointmain.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="./css/ie8.css" /><![endif]-->
 	</head>
 	<body class="left-sidebar">
@@ -19,10 +18,8 @@
 			<!-- Header -->
 				<div id="header-wrapper">
 					<div id="header" class="container">
-
-						<!-- Logo -->
+<!-- Logo -->
 							<h2 class="logo"><a href="/index"><img src="images/TITLE.png" width="260" height="57"></a></h2>
-							
 
 						<!-- Nav -->
 							<nav id="nav">
@@ -45,13 +42,13 @@
 									<li><a class="icon fa-retweet" href="rules"><span>網站規則</span></a></li>                                    
 								</ul>
 							</nav>
-
 					</div>
 				</div>
 
 			<!-- Main -->
 				<div id="main-wrapper">
 					<div id="main" class="container">
+                     
 						<div class="row">
 
 							<!-- Sidebar -->
@@ -69,29 +66,23 @@
                                                                     <h2>分類 Category</h2>
                                                                 </header>
                                                             <ul>
-                                                               
-                                                               
-                                                                 <li>
-                                                                    <span class="opener"><a href="/bookrank2017">2017</a></span>
+                                                               <li>
+                                                                    <span class="opener"><a href="/pointrank">2018</a></span>
                                                                     <ul>
                                                                         <li><a href="#">1</a></li>
                                                                         <li><a href="#">2</a></li>
                                                                         <li><a href="#">3</a></li>
-                                                                        <li><a href="#">Feugiat Veroeros</a></li>
+                                                                        <li><a href="#">4</a></li>
                                                                     </ul>
-                                                                    
                                                                 </li>
-                                                                
-                                                               
                                                                 <li>
-                                                                    <span class="opener"><a href="/bookrank2016">2016</a></span>
+                                                                    <span class="opener"><a href="/pointrank2016">2016</a></span>
                                                                     <ul>
-                                                                        <li><a href="#">Lorem Dolor</a></li>
-                                                                        <li><a href="#">Ipsum Adipiscing</a></li>
-                                                                        <li><a href="#">Tempus Magna</a></li>
-                                                                        <li><a href="#">Feugiat Veroeros</a></li>
+                                                                        <li><a href="#">1</a></li>
+                                                                        <li><a href="#">2</a></li>
+                                                                        <li><a href="#">3</a></li>
+                                                                        <li><a href="#">4</a></li>
                                                                     </ul>
-                                                                    
                                                                 </li>
                                                             </ul>
                                                             </nav>
@@ -108,46 +99,51 @@
 
 							<!-- Content -->
 						<div id="content" class="8u 12u(mobile) important(mobile)">
-                              <div id="products_contents" >
-									
-							<!-- ▼▼分類1從此開始▼▼ -->
-							   <p align="left" class="text0" >本月熱門書排行  BOOK RANK</h3>
-								
-								
-								<ul>
-									<!-- ▼▼商品1從此開始▼▼ -->
-									<% for(var i=0; i<data.length; i++) {%>
-									<li class="clearfix">
-										<h1  align="left">Top.<%= data[i].rankNo %></h1>
-										
-                                        <div class="clad" clad >
-                                        <p class="imageView"><a data-fancybox="gallery" href="<%= data[i].picture %>">
-                                        <img  class="bookpic" src="<%= data[i].picture %>" alt="黃椒 照片" width="180" height="180" align="absmiddle" /></a></p>
-										<h3><a href="/discuss2?bookName=<%= data[i].bookName %>"> <%= data[i].bookName %> </a></h3>
-                                           
-                                          
-                                          <p class="price"></p>
-                                          <p align="left" class="text1" >作者:  <%= data[i].author %> 著<br />
-                                            出版社: <%= data[i].publisher %> 出版</p>
-                                          <p align="left" class="text2" > <%= data[i].content %> </p>
-                                        </div>
-                                      <% } %>     
-                                       
-									<!-- ▲▲商品1到此為止▲▲ -->
-									<!-- ▼▼商品2從此開始▼▼ -->
+                       
+                       <div id="products_contents">
+							<div align="left">
+					          <ul>
+					            <!-- ▼▼分類1從此開始▼▼ -->
+					            <li id="cat_01"> </li>
+			             	 </ul>
+					     
+                      		</div>
+				        <ul>
+						   <p align="left" class="text0" >2017文青度排行  PERSON RANK</h3>
+                            <% for(var i=0; i<pointData.length; i++) {%>
+                               <table class="point">
+									<tr><td><h1  align="left">NO.<%= pointData[i].rankNo %></h1>
+									 <p align="left" class="photo"></p>
+									 <img class="logo" src="images/<%= pointData[i].avatar %>" width="100" height="100" align="absmiddle" /></p></td></tr>   
+									<tr><td><p align="left" class="text1" align="left"><%= pointData[i].title %></h3></td></tr>
+									<tr><td><p align="left" class="text"><%= pointData[i].nickName %></p></td></tr>
+									<tr><td><p align="left" class="price"> 文青度:<%= pointData[i].point %></a></p></td></tr>
+									<tr><td><img class="logo2" src="images/<%= pointData[i].picture %>" width="10" height="10" /></td></tr>	    
+							   </table>
+							<% } %> 
+							<% for(var i=0; i<rankData.length; i++) {%>
+                            <table class="point1">
                                     
-                                  
-								
-								<p align="left" class="pagetop"><a href="/bookrank">回到本頁最上方</a></p>
-							</li>
-							<!-- ▲▲分類5到此為止▲▲ -->
+									<td><tr><h1 align="left">No.<%= rankData[i].rankNo %></h1></tr></td>
+                                    <td><tr><p align="left" class="photo"></tr></td>
+									<td><tr><img class="logo"src="images/<%= rankData[i].avatar %>" width="100" height="100" align="absmiddle"/></p></tr></td>
+									<td><tr><p align="left" class="text2" align="left"><%= rankData[i].title %></h3></tr></td>
+									<td><tr><p align="left" class="text"><%= rankData[i].nickName %></p></tr></td>
+									<td><tr><p align="left" class="price">文青度:<%= rankData[i].point %></p></tr></td>
+									<td><tr><img class="logo2" src="images/<%= rankData[i].picture %>" width="10" height="10" /></tr></td>
+							</table>
+							  <% } %>   
+					        <p align="left" class="pagetop"><a href="/pointrank2017">回到本頁最上方</a></p>
+							</ul>
 						
-				  </div>
+						</div>
+					   
+					</div>
 					
 				</div>
 
 			<!-- Footer -->
-			<div id="footer-wrapper">
+				<div id="footer-wrapper">
 					<div id="footer" class="container">
 						<header>
 							<h2><strong>About Us </strong></h2>
@@ -174,7 +170,7 @@
 													(000) 000-0000
 												</li>
 												<li class="icon fa-envelope">
-													<a href="#">107511@ntub.edu.tw</a>
+													<a href="#">10356@ntub.edu.tw</a>
 												</li>
 											</ul>
 										</div>
@@ -205,8 +201,6 @@
 			<script src="./js/util.js"></script>
 			<!--[if lte IE 8]><script src="./js/ie/respond.min.js"></script><![endif]-->
 			<script src="./js/rank.js"></script>
-			<script src="./js/js.js"></script>
-			<script src="./js/main.js"></script>
-			<script src="./js/text2.js"></script>
+
 	</body>
 </html>
