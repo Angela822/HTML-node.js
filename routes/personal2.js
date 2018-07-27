@@ -28,7 +28,7 @@ router.get('/', function(req, res, next) {
                 noteData=results;
             }
 		
-		pool.query('SELECT a.mesContent, a.date,b.nickName,b.avatar,c.notetitle,c.picture FROM message a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN note AS c ON c.userid=b.userid', function(err, results) {
+		pool.query('SELECT a.mesContent, a.date,b.userid,b.nickName,b.avatar,c.notetitle,c.picture FROM message a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN note AS c ON c.userid=b.userid', function(err, results) {
             if (err) {
                 messengeData=[];
             }else{
@@ -48,6 +48,8 @@ router.get('/', function(req, res, next) {
 		});
     });
 });
+
+
 
 module.exports = router;
 
