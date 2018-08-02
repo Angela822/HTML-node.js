@@ -19,6 +19,7 @@ var rules = require('./routes/rules');
 var personal = require('./routes/personal');
 var personal0 = require('./routes/personal0');
 var personal2 = require('./routes/personal2');
+var personalUpdate = require('./routes/personalUpdate');
 //-------------------------------------------------------
 // 增加以下的require descuss中的search
 //-------------------------------------------------------
@@ -97,6 +98,7 @@ app.use('/rules', rules);
 app.use('/personal', personal);
 app.use('/personal0',personal0);
 app.use('/personal2',personal2);
+app.use('/personalUpdate',personalUpdate);
 //-------------------------------------------------------
 // 增加以下的app.use() descuss中的search
 //-------------------------------------------------------

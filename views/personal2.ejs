@@ -153,36 +153,31 @@
                              
                                 <div id="collectionLarge">
 								<p class="title">編輯個人資訊</p>
-                                <form role="form" action="/productAdd">
+                                <form onsubmit="return confirm('是否確定更改?');" role="form" method="post" enctype="multipart/form-data" action="/personalUpdate">
                     <div class="form-group">                     
                         <label>帳號</label>  
-                        <%= personalData[0].userName %>
-						<input type="hidden" class="form-control" id="proName"  name="proName"/>						
+                        <%= personalData[0].userid %>
+						<input type="hidden" class="form-control" id="userid"  name="userid"/>						
                     </div>
-                    
-                    <!--<div class="form-group">                     
-                        <label>密碼</label>
-                        <input type="password" class="form-control" id="proName"  name="proName"/>
-                    </div>-->
                     
                     <div class="form-group">                     
                         <label>暱稱</label>
-                        <input type="text" class="form-control" value="<%= personalData[0].nickName %>" id="proName"  name="proName"/>
+                        <input type="text" class="form-control" value="<%= personalData[0].nickName %>" id="nickName"  name="nickName"/>
                     </div>   
 
 					<div class="form-group">                     
                         <label>個簽</label>
-                        <input type="text" class="form-control" value="<%= personalData[0].sign %>" id="proName"  name="proName"/>
+                        <input type="text" class="form-control" value="<%= personalData[0].sign %>" id="sign"  name="sign"/>
                     </div>
 					
 					<div class="form-group">                     
                         <label>選擇頭貼</label>
-                        <input type="file" id="picture"  name="picture" />
+                        <input type="file" accept="image/gif, image/jpeg, image/png" id="avatar" name="avatar"  value="<%= personalData[0].avatar %>"/>
 						
                     </div>
-<br></br>
+					<br></br>
                     <button type="submit" class="btn btn-default">
-                        新增
+                        儲存
                     </button>
                 </form>
                                 </div>
