@@ -9,7 +9,10 @@
     "authorize": "0.0.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
+<<<<<<< HEAD
     "dotenv": "^6.0.0",
+=======
+>>>>>>> master
     "easyimage": "^3.1.0",
     "ejs": "~2.5.7",
     "express": "~4.16.0",
