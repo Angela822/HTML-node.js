@@ -19,6 +19,8 @@ var rules = require('./routes/rules');
 var personal = require('./routes/personal');
 var personal0 = require('./routes/personal0');
 var personal2 = require('./routes/personal2');
+var personal3 = require('./routes/personal3');
+var personalUpdate = require('./routes/personalUpdate');
 //-------------------------------------------------------
 // 增加以下的require descuss中的search
 //-------------------------------------------------------
@@ -43,6 +45,10 @@ var userDiscuss = require('./routes/userDiscuss');
 var userDiscuss2 = require('./routes/userDiscuss2');
 var userDiscuss3 = require('./routes/userDiscuss3');
 var userRules = require('./routes/userRules');
+var bookrank2017 = require('./routes/bookrank2017');
+var bookrank2016 = require('./routes/bookrank2016');
+var pointrank2017 = require('./routes/pointrank2017');
+var pointrank2016 = require('./routes/pointrank2016');
 //-------------------------------------------------------
 // 增加以下的require index中的register
 //-------------------------------------------------------
@@ -93,6 +99,8 @@ app.use('/rules', rules);
 app.use('/personal', personal);
 app.use('/personal0',personal0);
 app.use('/personal2',personal2);
+app.use('/personal3',personal3);
+app.use('/personalUpdate',personalUpdate);
 //-------------------------------------------------------
 // 增加以下的app.use() descuss中的search
 //-------------------------------------------------------
@@ -117,6 +125,10 @@ app.use('/userDiscuss',userDiscuss);
 app.use('/userDiscuss2', userDiscuss2);
 app.use('/userDiscuss3', userDiscuss3);
 app.use('/userRules', userRules);
+app.use('/bookrank2017',bookrank2017);
+app.use('/bookrank2016',bookrank2016);
+app.use('/pointrank2017',pointrank2017);
+app.use('/pointrank2016',pointrank2016);
 //-------------------------------------------------------
 // 增加以下的app.use() index中的register
 //-------------------------------------------------------

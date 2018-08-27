@@ -6,7 +6,6 @@ var router = express.Router();
 //----------------------------------------------------
 var pool = require('./lib/db.js');
 
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
     pool.query('select * from book', function (error, results, fields) {

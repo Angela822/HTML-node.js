@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
             personalData=results;
         }
 
-        pool.query('SELECT a.mesContent, a.date,b.nickName,b.avatar,c.notetitle,c.picture FROM message a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN note AS c ON c.userid=b.userid', function(err, results) {
+        pool.query('SELECT a.mesContent, a.date,b.nickName,b.avatar,c.noteContent,c.picture FROM message a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN note AS c ON c.userid=b.userid', function(err, results) {
             if (err) {
                 messengeData=[];
             }else{

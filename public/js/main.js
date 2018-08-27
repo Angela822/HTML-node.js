@@ -125,28 +125,46 @@
 	　});
 	});
 	
-	//search
-	function myFunction() {
-		// Declare variables
-		var input, filter, ul, li, a, i, h3;
-		input = document.getElementById('query');
-		filter = input.value.toUpperCase();
-		ul = document.getElementById("serch");
-		li = ul.getElementsByTagName('li');
-		h3 = li.getElementsByTagName('h3');
+	
+})(jQuery);
 
-		// Loop through all list items, and hide those who don't match the search query
-		for (i = 0; i < li.length; i++) {
-			a = li[i].getElementsByTagName("a")[0];
-			if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-				li[i].style.display = "";
-			} else {
-				li[i].style.display = "none";
-			}
+//search
+function myFunction() {
+	// Declare variables
+	var input, filter, ul, li, a, i, h3;
+	input = document.getElementById('query');
+	filter = input.value.toUpperCase();
+	ul = document.getElementById("serch");
+	li = ul.getElementsByTagName('li');
+	h3 = li.getElementsByTagName('h3');
+
+	// Loop through all list items, and hide those who don't match the search query
+	for (i = 0; i < li.length; i++) {
+		a = li[i].getElementsByTagName("a")[0];
+		if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+			li[i].style.display = "";
+		} else {
+			li[i].style.display = "none";
 		}
 	}
+}
 
-	
-	
+//myArticle Open
+function myArticle(){
+	var x = document.getElementById('myArticle');
+	if (x.style.display === 'none') {
+		x.style.display = 'block';
+	} else {
+		x.style.display = 'none';
+	}
+}
 
-})(jQuery);
+//myCollection Open
+function myCollection(){
+	var x = document.getElementById('myCollection');
+	if (x.style.display === 'none') {
+		x.style.display = 'block';
+	} else {
+		x.style.display = 'none';
+	}
+}

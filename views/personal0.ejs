@@ -11,7 +11,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.jscrollpane.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />	
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" href="css/indexMain.css" />
+		<link type="text/css" rel="stylesheet" href="css/font-awesome.min.css"/>
+		<link rel="stylesheet" href="css/register.css" />
 		<link rel="stylesheet" href="css/login.css" />
+		<link rel="stylesheet" href="css/collect.css" />
 		<link rel="stylesheet" href="css/personal.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
 
@@ -76,10 +84,10 @@
 													<!-- Excerpt -->
 														<article class="box excerpt">
 															<header>
-																<p class="photo"><img src="<%= "images/" + personalData[0].avatar %>" width="120" height="120"></p>
+																<p class="photo"><img src="<%= "images/" + personalData[1].avatar %>" width="120" height="120"></p>
 
-																<h3><%= personalData[0].nickName %></h3>
-                                                                <p class="persign"><%= personalData[0].sign %></p>
+																<h3><%= personalData[1].nickName %></h3>
+                                                                <p class="persign"><%= personalData[1].sign %></p>
                                                                 <!--<span class="level">Lv.20</span>-->
 																<a href="\personal2" class="button">編輯個資</a>
 															</header>
@@ -147,8 +155,8 @@
                              <!-- main -->
                              
                                 <div id="collectionLarge">
-                                <p class="title">我的文章&nbsp;-&nbsp;2018年2月</p>
-                                    <ul >
+                                 <p onclick="myArticle()" class="title">我的文章&nbsp;-&nbsp;2018年2月</p>
+                                    <ul id="myArticle">
 										<% for(var i=0; i<noteData.length; i++){ %>
 											<li>										
 												<section>
@@ -157,49 +165,55 @@
 												<article>
 													<h2><%= noteData[i].noteTitle %></h2>
 													<p><%= noteData[i].noteContent %></p>
+													<a href="\personal3" class="button">編輯...</a><br><br>
 													<a href="/discuss3" class="button">前往...</a>
+													<p><%= noteData[i].date %></p>
 												</article>
 											</li>
                                         <% } %> 								 
                                     </ul>
+									
                                 </div>
                                 <p class="clear"></p>
-                             <!------------------------------------>   
-                                <div id="collectionSmall">
-                                <p class="title2">收藏列表&nbsp;-&nbsp;2018年2月</p>
-                                    <ul>
-                                        <li>
-                                            <section>
-                                                <p class="picBook"><img src = "<%= collectionData[5].picture %>" width="110" height="120"/></p>
-                                            </section>
-                                            <article>
-                                                <h3><%= collectionData[5].bookName %></h3>
-                                                <!--<p>世界上的食物種類如此的多，什麼時候...</p>
-                                                
-                                            </article>-->
-                                        </li>
-                                        
-                                        <li>
-                                            <section>
-                                                <p class="picBook"><img src="images/pic5.jpg" width="110" height="120"/></p>
-                                            </section>
-                                            <article>
-                                                <h3>過敏的大腦</h3>
-                                            </article>
-                                        </li>
-                                        
-                                        <li>
-                                            <section>
-                                                <p class="picBook"><img src="images/pic3.jpg" width="110" height="120"/></p>
-                                            </section>
-                                            <article>
-                                                <h3>去京阪神必讀</h3>
-                                            </article>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <!------------------------------------>   
+                     <!--<div id="collectionSmall">-->
+							
+									<p onclick="myCollection()" class="title2">收藏列表&nbsp;-&nbsp;2018年2月</p>
+                                    <ul id="myCollection">
+									<div id="abgne-block-20120327">
+										<ul class="tabs">
+										 <li><span><%= collectionData[6].bookName %></span></li>
+										 <li><span><%= collectionData[3].bookName %></span></li>
+										 <li><span><%= collectionData[3].bookName %></span></li>
+										</ul>
+										<div class="tab_container">
+										 <ul class="tab_content">
+										  <li>
+											<img src = "<%= collectionData[6].picture %>" width="300" height="300" alt="Happy Birthday"/>
+										   <h3 ><%= collectionData[6].bookName %></h3>
+										   <p><%= noteData[6].noteContent %>
+									  。</p>
+										  </li>
+										  <li>
+											<img src = "<%= collectionData[3].picture %>" width="300" height="300" alt="Happy Birthday"/>
+										   <h3><%= collectionData[3].bookName %></h3>
+										   <p><%= noteData[3].noteContent %></p>
+										  </li>
+										  <li>
+											<img src = "<%= collectionData[3].picture %>" width="300" height="300" alt="Happy Birthday"/>
+										   <h3 ><%= collectionData[3].bookName %></h3>
+										   <p><%= noteData[3].noteContent %></p>
+										  </li>
+										 </ul>
+									  <a style='float:right;margin-right:10px;' href="#">TOP</a>
+										</div>
+										</ul>
+									   </div>
+									  
+					 
+				<!--</div>-->
                                 
-                          </div>
+                             
                                 
                              
 			<!-- Footer -->
@@ -269,7 +283,16 @@
 			<script src="js/skel.min.js"></script>
 			<script src="js/skel-viewport.min.js"></script>
 			<script src="js/util.js"></script>
+			<script src="js/register.js"></script>
 			<!--[if lte IE 8]><script src="js/ie/respond.min.js"></script><![endif]-->
 			<script src="js/main.js"></script>
+			
+			<script src="js/collect.js"></script>
+			<a href="/personal"><img class="fix" src="images/plus-g.png"></a>
+		<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+		<script type="text/javascript" src="js/jquery.contentcarousel.js"></script>
+		<script type="text/javascript">
+			$('#ca-container').contentcarousel();
+		</script>
 	</body>
 </html>

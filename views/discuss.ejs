@@ -22,12 +22,75 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
 
 		<script type="text/javaScript">
+			//-------like-------------
 			var likes=1;
 			function like(){
 				document.getElementById("show").innerHTML=likes;
 				likes+=1;
 			}
+			//-------------------------
+			
+			//------commentOpen--------
+			function comment(){
+				var x = document.getElementById('comment');
+				if (x.style.display === 'none') {
+					x.style.display = 'block';
+				} else {
+					x.style.display = 'none';
+				}
+			}
+			//-------------------------
+
+			//------comment------------
+			window.onload = function(){
+				var btn = document.getElementById('comInput');
+				var text = document.getElementById('comText');
+				var commentlist = document.getElementById('comlist');
+				var colors = ["red","pink"];
+				var nub = 0;
+				btn.onclick = function(){
+					if(text.value.trim() == ""){
+						alert("留個言吧");
+						return false;
+					}
+					var comli = document.createElement("li");
+					comli.innerHTML = text.value;
+					// li.className = colors[nub%colors.length];
+					/* 判断a标签已经被添加，就让a标签显示出来，否则就添加 */
+					if(commentlist.children[0]&&commentlist.children[0].className=="red"){
+						comli.className = "pink";
+					} else {
+						comli.className = "red";
+					}
+					
+					//var a = null;	
+					/*
+					li.onmouseover = function(){
+						if(a) {
+							a.style.display = "block";
+						} else {
+							a = document.createElement("a");
+							a.href = "javascript:;";
+							a.className = "clos";
+							a.innerHTML = "删除";
+							a.onclick = function (){
+							list.removeChild(this.parentNode);
+						};
+						this.appendChild(a);
+					}
+					};*/
+					/*
+					comli.onmouseout = function(){
+					a.style.display = "none";
+				};*/
+				commentlist.insertBefore(comli,commentlist.children[0]);
+				text.value = "";
+				nub++;
+				};
+				}; 
+				//-------------------------
 		</script>
+
 	</head>
 
 	<body class="left-sidebar">
@@ -124,11 +187,17 @@
 														<p class="text"><%= data[i].noteContent %></p>
 														<span type="text" id="show"></span>
 														<i onclick="like()" class="glyphicon glyphicon-thumbs-up"></i>
-														3<i class="glyphicon glyphicon-comment"></i>                     	
+														3<i onclick="comment()" class="glyphicon glyphicon-comment"></i> 
+														<div id="comment">
+															<div class="wrap">
+																<textarea id="comText"></textarea>
+																<input type="button" value="留言" id="comInput">
+															<ul id="comlist"></ul>
+															</div>
+														</div> 
 														<p class="date">2017.08.11</p>
 														<a href="/discuss2?bookName=<%= data[i].bookName %>" class="button">More</a>		
 													</li>
-											
 												<% } %> 
 												
 												<!-- ▲▲項目1到此為止▲▲ -->

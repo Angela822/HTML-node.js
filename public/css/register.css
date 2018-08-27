@@ -72,7 +72,25 @@
             .inner{
                 background-color: #ffff;
                 padding: 50px 70px;
-            }
+			}
+			
+			.inner .tooltip{
+				margin-top: -20px;
+				float: left;
+				font-size: 14px;
+			}
+
+			.inner .nickName{
+				margin-top: 10px;
+			}
+
+			.inner .psd{
+				margin-top:30px;
+			}
+
+			.inner .pswRepeat{
+				margin-top:30px;
+			}
 
 			/* The Modal (background) */
 			.modal2 {
