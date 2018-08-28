@@ -7,6 +7,7 @@ var mysql = require('mysql');
 //-----------------
 var pool = require('./lib/db.js');
 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
    //取得使用者傳來的參數

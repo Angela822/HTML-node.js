@@ -95,7 +95,7 @@
 										<h3><%= data[0].bookName %></h3>
 										<p class="word">作者：<%= data[0].author %><br />
                                             出版社：<%= data[0].publisher %><br />
-                                            出版日期：<%= data[0].date %><br />
+                                            出版日期：<%=myDateFormat(data[0].date) %><br />
                                             語言：<%= data[0].language %><br/>
                                             分享：LINE,FB</p>
 										<a href="http://webpac.ntub.edu.tw/webpacIndex.jsp" class="button">借閱</a>
