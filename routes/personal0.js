@@ -5,6 +5,11 @@ var router = express.Router();
 // 即使多個程式均引用, 在系統中只有一份pool物件.
 //----------------------------------------------------
 var pool = require('./lib/db.js');
+//----------------------------------------------
+// 載入使用權檢查
+//----------------------------------------------
+var authorize = require('./lib/authorize.js');
+//----------------------------------------------
 
 
 /* GET home page. */
@@ -14,21 +19,31 @@ router.get('/', function(req, res, next) {
 	var messengeData;
 	var collectionData;
 
-    pool.query('select * from users', function(err, results) {       
+
+    //------------------------------------------
+    // 如尚未登入, 轉至未登入頁面
+    //------------------------------------------
+    if(!authorize.isPass(req)){
+        res.render(authorize.illegalURL, {});
+        return;
+    }
+    //------------------------------------------
+
+    pool.query('select * from users ', function(err, results) {       
         if (err) {
             personalData=[];
         }else{
             personalData=results;
         }
 
-        pool.query('SELECT a.bookNo,a.noteContent,a.date,b.picture FROM note a LEFT JOIN book AS b ON a.bookNo=b.bookNo', function(err, results) {
+        pool.query('SELECT a.bookNo,a.noteContent,b.picture FROM note a LEFT JOIN book AS b ON a.bookNo=b.bookNo', function(err, results) {
             if (err) {
                 noteData=[];
             }else{
                 noteData=results;
             }
 		
-		pool.query('SELECT a.mesContent, a.date,b.nickName,b.avatar,c.noteContent,c.picture FROM message a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN note AS c ON c.userid=b.userid', function(err, results) {
+		pool.query('SELECT a.mesContent, a.date,b.nickName,b.avatar,c.noteContent,c.picture FROM message a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN note AS c ON c.userid=b.userid where userid=session.userid', function(err, results) {
             if (err) {
                 messengeData=[];
             }else{
@@ -42,12 +57,14 @@ router.get('/', function(req, res, next) {
                 collectionData=results;
             }
 			
-		res.render('personal0', {personalData:personalData, noteData:noteData, messengeData:messengeData, collectionData:collectionData});
+		res.render('personal0', {userid:req.session.userid, nickName:req.session.nickName, sign:req.session.sign, avatar:req.session.avatar,personalData:personalData, noteData:noteData, messengeData:messengeData, collectionData:collectionData});
 		});
 		});
 		});
     });
 });
+
+
 
 module.exports = router;
 
