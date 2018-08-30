@@ -6,7 +6,7 @@ var router = express.Router();
 //----------------------------------------------
 var authorize = require('./lib/authorize.js');
 //----------------------------------------------
-
+var pool = require('./lib/db.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {	
@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
     //------------------------------------------
 
 	
-    res.render('userIndex', {userNo:req.session.userNo, nickName:req.session.nickName});
+    res.render('userIndex', {userid:req.session.userid, nickName:req.session.nickName, sign:req.session.sign, avatar:req.session.avatar});
 });
 
 module.exports = router;
