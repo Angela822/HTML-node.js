@@ -21,47 +21,13 @@
 		<link rel="stylesheet" href="css/indexMain.css" />
 		<link type="text/css" rel="stylesheet" href="css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="css/register.css" />
+		
+		
+		
 
 		<!--web icon-->
 		<link rel="Shortcut Icon" type="image/x-icon" href="images/logo.png" />
-		<!----<link href="images/logo.png" rel="shortcut icon">---->
-		<!--
-		<script>
-			//input check
-			function myFunction() {
-				var check = document.getElementById("tooltip").value;
-				var text;
-				if (check == isSpaceChar() || check == "hi") {
-					text = "Please Write!";
-				}else {
-					text = "Input OK";
-				} 
-				document.getElementById("tooltip").innerHTML = text;
-			}
-		</script>
-		-->
-		<script>
-			//E-mail input value check
-			function isEmail(strEmail) {
-				if (strEmail.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) != -1){
-					return document.getElementById("tooltip").innerHTML = "格式正確&check;";
-					
-				}else	
-					return document.getElementById("tooltip").innerHTML = "請輸入正確E-mail格式";
-			}
-			
-			//password input value check
-			function check(){ 
-				with(document.all){
-					if(input1.value!=input2.value){
-						return document.getElementById("psdTooltip").innerHTML = "密碼不一致!";
-						input2.value = "";
-					}else 
-						return document.getElementById("psdRTooltip").innerHTML = "密碼正確&check;";
-				}
-			}
-		</script>
-		
+    	<!----<link href="images/logo.png" rel="shortcut icon">---->
 	</head>
 	<body class="homepage">
 		<div id="page-wrapper">
@@ -107,22 +73,24 @@
                                     </div>
                                 
                                     <div class="logcon">
-                                      <label><b>E-mail</b></label>
-                                      <input type="text" placeholder="輸入E-mail" name="userid" required>
+                                      <label><b>身分證字號</b></label>
+                                      <input type="text" placeholder="輸入身分證字號" name="userid" required>
                                 
                                       <label><b>密碼</b></label>
                                       <input type="password" placeholder="輸入密碼" name="password" required>
                                         
-									  <button type="submit" onclick="myFunction()" class="In">登入</button>
+									  <button type="submit" class="In">登入</button>
+								
 									  <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" type="submit" class="register" >註冊</button>
-									  
+									
 									  <div class="logcon foot" style="background-color:#f1f1f1">
 										<button type="button" onclick="document.getElementById('login').style.display='none'" class="cancelbtn">關閉</button>
 										<p><a href="#">管理員登入</a></p>
 										<!--<span class="psw">Forgot <a href="#">password?</a></span>-->
 									  </div>
+									</form>
                                     </div>
-								  </form>
+								  
 								</div>
 								
 								<!--註冊表單-->
@@ -134,20 +102,17 @@
 											<h1>註冊</h1>
 											<p></p>
 											<hr>
-											<label for="userid"><b>E-mail</b></label>
-											<!--<input onclick="myFunction()" type="text" placeholder="輸入E-mail" name="userid" required>-->
-											<input type="text" placeholder="Ex.takebook@gmail.com" name="userid" onblur="isEmail(this.value)" required>
-											<span id="tooltip" class="tooltip"></span>
-
-											<label for="password"  class="psd"><b>密碼</b></label>	
-											<input type="password" id="input1" placeholder="輸入密碼" name="password" maxlength="15" required>
-											<span id="psdTooltip" class="tooltip">*字數請少於15個 </span>
+											<label for="userid"><b>身分證字號</b></label>
+											<input type="text" placeholder="輸入您的身分證字號" name="userid" required>
+									
+											<label for="password"><b>密碼</b></label>
+											<input type="password" placeholder="輸入密碼" name="password" required>
+											<!--
+											<label for="psw-repeat"><b>確認密碼</b></label>
+											<input type="password" placeholder="再次輸入密碼" name="pswRepeat" required>
+											-->
 											
-											<label for="psw-repeat" class="pswRepeat"><b>確認密碼</b></label>
-											<input type="password" id="input2" onblur="check()" placeholder="再次輸入密碼" name="pswRepeat" required>
-											<span id="psdRTooltip" class="tooltip"></span>
-											
-											<label for="nickName" class="nickName"><b>暱稱</b></label>
+											<label for="nickName"><b>暱稱</b></label>
 											<input type="text" placeholder="輸入暱稱" name="nickName" required>
 											
 											<!--
@@ -489,6 +454,7 @@
 			<script src="js/skel-viewport.min.js"></script>
 			<script src="js/util.js"></script>
 			<script src="js/register.js"></script>
+			<script src="js/main.js"></script>
 			<script src="js/index.js"></script>
 
 	</body>
