@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
     //------------------------------------------
 
 	
-    res.render('userIndex', {userid:req.session.nickName});
+    res.render('userIndex', {userid:req.session.userid,nickName:req.session.nickName, sign:req.session.sign, avatar:req.session.avatar});
 });
 
 module.exports = router;
