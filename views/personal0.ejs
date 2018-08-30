@@ -86,9 +86,9 @@
 															<header>
 																<p class="photo"><img src="<%= "images/" +avatar %>" width="120" height="120"></p>
 
-																<h3><%= nickName %></h3>
+																<h3><%= personalData[1].nickName %></h3>
 																
-                                                                <p class="persign"><%= sign %></p>
+                                                                <p class="persign"><%= personalData[1].sign %></p>
                                                                 <!--<span class="level">Lv.20</span>-->
 																<a href="\personal2" class="button">編輯個資</a>
 															</header>
@@ -104,8 +104,10 @@
 																<h4>動態消息</h4>
 															</header>
 															<ul>
-																
-																
+																<li>
+																	<p class="photo"><img src="<%= "images/" + messengeData[0].avatar %>" width="50" height="50"></p>
+																	<p class="persign1"><strong><%= messengeData[0].nickName %></strong>回復了你<strong><%= messengeData[0].notetitle %></strong>的筆記</p>
+																</li>
 																
 															</ul>	
 																
@@ -165,6 +167,7 @@
 													<h2><%= noteData[i].noteTitle %></h2>
 													<p><%= noteData[i].noteContent %></p>
 													<a href="/discuss3" class="button">前往...</a>
+													<p><%= myDateFormat(noteData[i].date) %></p>
 												</article>
 											</li>
                                         <% } %> 								 
