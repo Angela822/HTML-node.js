@@ -34,7 +34,15 @@ router.get('/', function(req, res, next) {
             bookData=results;
         }
 		
+		pool.query('SELECT a.bookNo,b.bookName,b.author FROM collection a LEFT JOIN book AS b ON a.bookNo=b.bookNo', function(err, results) {
+            if (err) {
+                collectionData=[];
+            }else{
+                collectionData=results;
+            }
+		
 		res.render('personal', {personalData:personalData, messengeData:messengeData, bookData:bookData});
+		});
 		});
 		});
     });

@@ -1,4 +1,4 @@
- <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <!--
 	Strongly Typed by HTML5 UP
 	html5up.net | @ajlkn
@@ -22,7 +22,7 @@
 		<link rel="stylesheet" href="css/collect.css" />
 		<link rel="stylesheet" href="css/personal.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
-		
+
 		<!--web icon-->
     	<link rel="Shortcut Icon" type="image/x-icon" href="images/logo.png" />
 	</head>
@@ -57,7 +57,7 @@
                                     <!--網站規則-->
 									<li><a class="icon fa-retweet" href="/userRules"><span>網站規則</span></a></li>
                                     <!--個人資訊-->
-									<li><a class="icon fa-sitemap" href="/personal0?userid=<%= userid %>"><span>個人資訊</span></a></li>
+									<li><a class="icon fa-sitemap" href="//personal0?userid=<%= userid %>"><span>個人資訊</span></a></li>
 								</ul>
 
 								<!--login button-->
@@ -87,7 +87,6 @@
 																<p class="photo"><img src="<%= "images/" +avatar %>" width="120" height="120"></p>
 
 																<h3><%= nickName %></h3>
-																
                                                                 <p class="persign"><%= sign %></p>
                                                                 <!--<span class="level">Lv.20</span>-->
 																<a href="\personal2" class="button">編輯個資</a>
@@ -104,7 +103,9 @@
 																<h4>動態消息</h4>
 															</header>
 															<ul>
-																
+																<li>
+																	
+																</li>
 																
 																
 															</ul>	
@@ -153,9 +154,8 @@
                              <!-- main -->
                              
                                 <div id="collectionLarge">
-                               
-								<p class="title">我的文章&nbsp;-&nbsp;2018年2月</p>
-                                    <ul >
+                                 <p onclick="myArticle()" class="title">我的文章&nbsp;-&nbsp;2018年2月</p>
+                                    <ul id="myArticle">
 										<% for(var i=0; i<noteData.length; i++){ %>
 											<li>										
 												<section>
@@ -164,17 +164,21 @@
 												<article>
 													<h2><%= noteData[i].noteTitle %></h2>
 													<p><%= noteData[i].noteContent %></p>
+													<a href="\personal3" class="button">編輯...</a><br><br>
 													<a href="/discuss3" class="button">前往...</a>
+													<p>最終修改時間 : <%= myDateFormat(noteData[i].date) %></p>													
 												</article>
 											</li>
                                         <% } %> 								 
                                     </ul>
+									
                                 </div>
                                 <p class="clear"></p>
-                             <!------------------------------------>   
+                            <!------------------------------------>   
                      <!--<div id="collectionSmall">-->
 							
-									<p class="title2">收藏列表&nbsp;-&nbsp;2018年2月</p>
+									<p onclick="myCollection()" class="title2">收藏列表&nbsp;-&nbsp;2018年2月</p>
+                                    <ul id="myCollection">
 									<div id="abgne-block-20120327">
 										<ul class="tabs">
 										 <li><span><%= collectionData[6].bookName %></span></li>
@@ -202,10 +206,13 @@
 										 </ul>
 									  <a style='float:right;margin-right:10px;' href="#">TOP</a>
 										</div>
+										</ul>
 									   </div>
 									  
 					 
 				<!--</div>-->
+                                
+                             
                                 
                              
 			<!-- Footer -->
@@ -267,7 +274,8 @@
 				</div>
 				-->
 			</div>
-		
+		<a href="/personal"><img class="fix" src="images/plus-g.png"></a>
+
 		<!-- Scripts -->
         	<script src="js/jquery.min.js"></script>
 			<script src="js/jquery.dropotron.min.js"></script>
@@ -277,13 +285,13 @@
 			<script src="js/register.js"></script>
 			<!--[if lte IE 8]><script src="js/ie/respond.min.js"></script><![endif]-->
 			<script src="js/main.js"></script>
+			
 			<script src="js/collect.js"></script>
 			<a href="/personal"><img class="fix" src="images/plus-g.png"></a>
-			<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
-			<script type="text/javascript" src="js/jquery.contentcarousel.js"></script>
-			<script type="text/javascript">
-				$('#ca-container').contentcarousel();
-			</script>
-		
+		<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+		<script type="text/javascript" src="js/jquery.contentcarousel.js"></script>
+		<script type="text/javascript">
+			$('#ca-container').contentcarousel();
+		</script>
 	</body>
 </html>

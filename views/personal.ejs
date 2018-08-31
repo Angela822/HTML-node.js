@@ -155,9 +155,10 @@
                 <form role="form" action="/personal">
                     <div class="form-group">                     
                         <label>圖書名稱</label>  
-                        <select class="form-control"  id="bookName"  name="bookName">
-                            <% for(var i=0; i<bookData.length; i++){ %>                     
-                                <option value="<%= bookData[i].bookName %>"><%= (bookData[i].bookName + " " + bookData[i].author) %></option>                                
+                        <select class="form-control"  id="bookName"  name="bookName" >
+						<option value="">把書加入收藏就能寫筆記囉~</option>
+                            <% for(var i=0; i<collectionData.length; i++){ %>                     
+                                <option value="<%= collectionData[i].bookName %>"><%= (collectionData[i].bookName + " " + collectionData[i].author) %></option>                                
                             <% } %>                                                         
                         </select>                 
                     </div>

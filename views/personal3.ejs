@@ -17,10 +17,6 @@
 
 		<!--web icon-->
     	<link rel="Shortcut Icon" type="image/x-icon" href="images/logo.png" />
-		<script src="public/js/ckeditor.js"></script>
-		<script src="public/js/sample.js"></script>
-        <link rel="stylesheet" href="public/css/samples.css">
-        <link rel="stylesheet" href="public/css/neo.css">
 	</head>
     
 	<body class="left-sidebar">
@@ -159,11 +155,12 @@
                 <form role="form" action="/personal">
                     <div class="form-group">                     
                         <label>圖書名稱</label>  
-                        <select class="form-control"  id="bookName"  name="bookName">
+						 <input type="text" class="form-control" readonly>
+                        <!-- <select class="form-control"  id="bookName"  name="bookName">
                             <% for(var i=0; i<bookData.length; i++){ %>                     
                                 <option value="<%= bookData[i].bookName %>"><%= (bookData[i].bookName + " " + bookData[i].author) %></option>                                
                             <% } %>                                                         
-                        </select>                 
+                        </select>        -->          
                     </div>
 					
 					<div class="form-group">                     
@@ -185,7 +182,15 @@
 				
 
                     <button type="submit" class="btn btn-default">
-                        新增
+                        儲存
+                    </button>
+					&nbsp;&nbsp;&nbsp;
+					<a href="\personal0"><button type="submit" class="btn btn-default">
+                        取消
+                    </button></a>
+					&nbsp;&nbsp;&nbsp;
+					<button type="submit" class="btn btn-default">
+                        刪除此筆記
                     </button>
                 </form>                
             </div>
@@ -247,6 +252,9 @@
 		</div>
 <a href="/personal"><img class="fix" src="images/plus-g.png"></a>
 		<!-- Scripts -->
+		    <script src="../ckeditor/ckeditor.js"></script>
+			<script>CKEDITOR.replace( 'editor1' );</script>
+			<script src="//cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
         	<script src="js/jquery.min.js"></script>
 			<script src="js/jquery.dropotron.min.js"></script>
 			<script src="js/skel.min.js"></script>
