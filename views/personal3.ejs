@@ -77,12 +77,10 @@
 													<!-- Excerpt -->
 														<article class="box excerpt">
 															<header>
-																<p class="photo"><img src="<%= "images/" + personalData[0].avatar %>" width="120" height="120"></p>
-																
-																
-																
-																<h3><%= personalData[0].nickName %></h3>
-                                                                <p class="persign"><%= personalData[0].sign %></p>
+																<p class="photo"><a href="/personal0 %>"><img src="<%= "images/" +avatar %>" width="120" height="120"></a></p>
+
+																<h3><a href="/personal0 %>"><%= nickName %></a></h3>
+                                                                <p class="persign"><%= sign %></p>
                                                                 <!--<span class="level">Lv.20</span>-->
 																<a href="\personal2" class="button">編輯個資</a>
 															</header>
@@ -96,15 +94,16 @@
 															<header>
 																<h4>動態消息</h4>
 															</header>
-															<ul>
+															
+																<ul>
+															<% for(var i=0; i<messengeData.length; i++){ %>
 																<li>
-																	<p class="photo"><img src="<%= "images/" + messengeData[0].avatar %>" width="50" height="50"></p>
-																	<p class="persign1"><strong><%= messengeData[0].nickName %></strong>回復了你<strong><%= messengeData[0].notetitle %></strong>的筆記</p>
+																	<p class="photo"><img src="<%= "images/" + messengeData[i].avatar %>" width="50" height="50"></p>
+																	<p class="persign1"><strong><%= messengeData[i].nickName %></strong>回覆了你<strong><%= messengeData[i].noteTitle %></strong>的筆記</p>
 																</li>
+															 <% } %>	
 																
-																
-															</ul>	
-																
+															</ul>
 																
 														</article>
 
@@ -116,23 +115,17 @@
 													<!-- Excerpt -->
 														<article class="box excerpt">
 															<header>
-																<h4>你可能會喜歡</h4>
+																<h4>好書推薦</h4>
 															</header>
 															<ul>
 																<li>
 																	<section>
-																		<p class="picBook">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/pic1.jpg" width="180" height="200"/></p>
+																		<p class="picBook">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src = "<%= booksData[0].picture %>" width="180" height="200"/></p>
 																	</section>
 																	<article>
-																		<h2>貓貓蟲咖波</h2>
-																		<p>史上最萌的獵奇向作品，滿滿的補血元素最適合疲累一整天的你！
-
-　　咖波是長得像貓又像蟲的不明物種，喜歡撒嬌，愛搗蛋。
-　　平常有六隻腳，身體會伸縮不固定。看到什麼都想吃，明明是超級吃貨卻超討厭蔬菜。
-　　咖波的日常就是不斷的吃吃吃和惡作劇，還有他的家人狗狗與飼主拉拉，以及其他「食物」們的日常生活詼諧逗趣，帶給你萌度爆表的獵奇向作品初體驗！
-
-　　讀者一致肯定：「有點獵奇又愛賣萌的療癒感真是讓人鼻血狂噴啊！」</p>
-																		<a href="discuss3.html" class="button">前往...</a>
+																		<h2><%= booksData[0].bookName %></h2>
+																		<p><%= booksData[0].content %></p>
+																		<a href="/discuss3" class="button">前往...</a>
 																	</article>
 																</li>
 																</ul>
@@ -149,37 +142,36 @@
                              <!-- main -->
                              
                                 <div id="collectionLarge">
-                                <p class="title">編輯筆記</p>
-                                    <div class="row">
+								<p class="title">編輯筆記</p>
+			<form onsubmit="return confirm('是否確定更改?');" role="form" method="get" enctype="multipart/form-data" action="/notedEdit">
+            <div class="row">
+									
             <div class="col-md-12">
-                <form role="form" action="/personal">
-                    <div class="form-group">                     
-                        <label>圖書名稱</label>  
-						 <input type="text" class="form-control" readonly>
-                        <!-- <select class="form-control"  id="bookName"  name="bookName">
-                            <% for(var i=0; i<bookData.length; i++){ %>                     
-                                <option value="<%= bookData[i].bookName %>"><%= (bookData[i].bookName + " " + bookData[i].author) %></option>                                
-                            <% } %>                                                         
-                        </select>        -->          
-                    </div>
+				
+                    
 					
 					<div class="form-group">                     
                         <label>標題</label>
-                        <input type="text" class="form-control">
+						
+						<select class="form-control"  id="noteTitle"  name="noteId" >
+							<option value="">選擇筆記</option>
+								<% for(var i=0; i<noteData.length; i++){ %>  
+							 
+									<option value="<%= noteData[i].noteId %>"><%= noteData[i].noteTitle  %></option>                                
+								<% } %>                                                         
+						</select>         
                     </div>
                     
                     <div class="form-group">                     
-                        <label>撰寫筆記</label>
-                                <div id="editor">
-										<form>
-										<textarea id="editor1">
-										
-										</textarea>
-										</form>
-                                </div>
-                    </div>
-					<br><br>
-				
+							<label>編寫筆記</label>
+							<textarea name="noteContent" cols="50" rows="5"> </textarea>
+					</div>
+					
+					<body onload="ShowTime()">
+						<form id="form1" runat="server">
+							<input type="hidden" value = "showbox" name="date">
+						</form>
+					</body>
 
                     <button type="submit" class="btn btn-default">
                         儲存
@@ -189,14 +181,13 @@
                         取消
                     </button></a>
 					&nbsp;&nbsp;&nbsp;
-					<button type="submit" class="btn btn-default">
-                        刪除此筆記
-                    </button>
+					
                 </form>                
             </div>
         </div>    
-                          </div>
-                                
+        </div>
+	</div>    
+</div>                      
                              
 			<!-- Footer -->
 				<!--<div id="footer-wrapper">

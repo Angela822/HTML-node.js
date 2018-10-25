@@ -136,18 +136,18 @@ router.post('/', function(req, res) {
 		
 
 		// 上傳成功, 接著取得使用者傳來的參數
-		var userid=req.param("userid");
+		var userid=req.session.userid;
 		var nickName=req.param("nickName");
 		var sign=req.param("sign");
 		var avatar='';
 		
 		// 設定資料表圖片的名稱 
 		if (typeof req.file != 'undefined'){
-			avatar="croped-"+filename;      	
+			avatar=filename;      	
 		}
 		
 		// 將更改資料
-		pool.query('UPDATE users SET nickName=?, sign=?, avatar=?  ', [nickName, sign, avatar, userid], function(err, rows, fields) {
+		pool.query('UPDATE users SET nickName=?, sign=?, avatar=? where userid=? ', [nickName, sign, avatar, userid], function(err, rows, fields) {
 			if (err){
 				//刪除先前已上傳的圖片
 				var deleteFile=null;

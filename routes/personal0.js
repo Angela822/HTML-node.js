@@ -14,6 +14,7 @@ var authorize = require('./lib/authorize.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+    var userid=req.session.userid;
     var personalData;
     var noteData;
 	var messengeData;
@@ -36,28 +37,36 @@ router.get('/', function(req, res, next) {
             personalData=results;
         }
 
-        pool.query('SELECT a.bookNo,a.noteContent,b.picture FROM note a LEFT JOIN book AS b ON a.bookNo=b.bookNo', function(err, results) {
+        pool.query('SELECT a.bookNo,a.noteId,SUBSTRING(a.noteContent,1,35) as noteContent,a.noteTitle,a.date,b.picture FROM note a LEFT JOIN book AS b ON a.bookNo=b.bookNo where userid=? GROUP BY noteId ORDER BY date DESC', [userid], function(err, results, fields) {
             if (err) {
                 noteData=[];
             }else{
                 noteData=results;
             }
 		
-		pool.query('SELECT a.mesContent, a.date,b.nickName,b.avatar,c.noteContent,c.picture FROM message a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN note AS c ON c.userid=b.userid where userid=session.userid', function(err, results) {
+		pool.query('select a.noteTitle, b.userid, b.mesContent ,b.date ,c.avatar ,c.nickName FROM note a, message b ,users c WHERE a.noteid = b.noteid AND c.userid = b.userid AND a.userid = ? AND b.userid!=? AND year(b.date)=YEAR(NOW())And month(b.date)=MONTH(NOW()) And day(b.date)=DAY(NOW())', [userid,userid], function(err, results, fields){
             if (err) {
                 messengeData=[];
             }else{
                 messengeData=results;
             }
 			
-		pool.query('SELECT a.bookNo,b.bookName,b.picture FROM collection a LEFT JOIN book AS b ON a.bookNo=b.bookNo', function(err, results) {
+		pool.query('SELECT a.bookNo,b.bookName,b.author,b.publisher,b.picture FROM collection a LEFT JOIN book AS b ON a.bookNo=b.bookNo where userid=?', [userid], function(err, results, fields){
             if (err) {
                 collectionData=[];
             }else{
                 collectionData=results;
             }
 			
-		res.render('personal0', {userid:req.session.userid, nickName:req.session.nickName, sign:req.session.sign, avatar:req.session.avatar,personalData:personalData, noteData:noteData, messengeData:messengeData, collectionData:collectionData});
+		pool.query(' SELECT serNo,bookName,picture, SUBSTRING(content,1,200) as content FROM book WHERE serNo IS NOT NULL and bookName IS NOT NULL and picture IS NOT NULL and content IS NOT NULL ORDER BY RAND() LIMIT 1', function(err, results, fields) {
+            if (err) {
+                bookData=[];
+            }else{
+                bookData=results;
+            }
+			
+		res.render('personal0', {userid:req.session.userid, nickName:req.session.nickName, sign:req.session.sign, avatar:req.session.avatar,personalData:personalData, noteData:noteData, messengeData:messengeData, collectionData:collectionData, bookData:bookData});
+		});
 		});
 		});
 		});

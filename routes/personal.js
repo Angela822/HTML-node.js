@@ -5,13 +5,29 @@ var router = express.Router();
 // 即使多個程式均引用, 在系統中只有一份pool物件.
 //----------------------------------------------------
 var pool = require('./lib/db.js');
+//----------------------------------------------
+// 載入使用權檢查
+//----------------------------------------------
+var authorize = require('./lib/authorize.js');
+//----------------------------------------------
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+	var userid=req.session.userid;
 	var personalData;
     var messengeData;
-	var bookData;
+    var bookData;
+
+    //------------------------------------------
+    // 如尚未登入, 轉至未登入頁面
+    //------------------------------------------
+    if(!authorize.isPass(req)){
+        res.render(authorize.illegalURL, {});
+        return;
+    }
+    //------------------------------------------   
+    
 
     pool.query('select * from users', function(err, results) {       
         if (err) {
@@ -20,7 +36,7 @@ router.get('/', function(req, res, next) {
             personalData=results;
         }
 
-        pool.query('SELECT a.mesContent, a.date,b.nickName,b.avatar,c.noteContent,c.picture FROM message a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN note AS c ON c.userid=b.userid', function(err, results) {
+        pool.query('SELECT a.mesContent, a.date,b.nickName,b.avatar,c.noteTitle FROM message a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN note AS c ON c.userid=b.userid where c.userid=? ', [userid], function(err, results, fields){
             if (err) {
                 messengeData=[];
             }else{
@@ -40,8 +56,16 @@ router.get('/', function(req, res, next) {
             }else{
                 collectionData=results;
             }
+			
+		pool.query('SELECT bookName,picture,SUBSTRING(content,1,30),1,30 FROM book ORDER BY RAND() LIMIT 1', function(err, results, fields) {
+            if (err) {
+                booksData=[];
+            }else{
+                booksData=results;
+            }
 		
-		res.render('personal', {personalData:personalData, messengeData:messengeData, bookData:bookData});
+		res.render('personal', {userid:req.session.userid, nickName:req.session.nickName, sign:req.session.sign,avatar:req.session.avatar,personalData:personalData, messengeData:messengeData, bookData:bookData});
+		});
 		});
 		});
 		});

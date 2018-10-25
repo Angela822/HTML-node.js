@@ -91,12 +91,16 @@
                                             <h2>分類 Category</h2>
                                         </header>
 									<ul>
-										<li><a href="/discuss#All">全部 All</a></li>
-										<li><a href="/discuss#Chinese">中文書 Chinese</a></li>
-										<li><a href="/discuss#Foreign language">外文書 Foreign language</a></li>
-										<li><a href="/discuss#reference book">參考書 reference book</a></li>	
-										<li><a href="/discuss#Simplified Chinese">簡體書 Simplified Chinese</a></li>
-										<li><a href="/discuss#Simplified Chinese">雜誌,MOOK</a></li>
+										<li><a href="/userDiscuss">全部 All</a></li>
+										<li><a href="/userDiscusslit">文學小說 literature</a></li>
+										<li><a href="/userDiscusstrav">旅遊 travel</a></li>
+										<li><a href="/userDiscussfin">商業理財 Financial Management</a></li>
+										<li><a href="/userDiscussfood">飲食料理 Dietary Food</a></li>	
+										<li><a href="/userDiscusspsy">心理勵志 Psychological Motivation</a></li>
+										<li><a href="/userDiscussedu">教育/親子教養,Parent and child Education</a></li>
+										<li><a href="/userDiscusslan">語言/字辭典,languageK</a></li>
+										<li><a href="/userDiscussart">藝術設計,Art Design</a></li>
+										<li><a href="/userDiscusslif">生活風格,Life Style</a></li>
 									</ul>
 									</nav>
 								</article>
@@ -111,37 +115,60 @@
 							<li id="All">
 								<ul>
 									<li class="clearfix">
-										<p class="picBook"><img src="images/pic1.jpg" width="180" height="200"/></p>
-                                        <p class="type"><a href="/discuss#Simplified Chinese">簡體書</a></p>
-                                        <a href="#" class="bookmark"><span class="glyphicon glyphicon-bookmark"></span></a>
+											<p class="picBook"><img src="<%= data[0].picture %>" width="180" height="200"</p>
+                                        <p class="type"><a href="/discuss#Simplified Chinese"><%= data[0].type %></a></p>
 										<h3><%= data[0].bookName %></h3>
 										<p class="word">作者：<%= data[0].author %><br />
                                             出版社：<%= data[0].publisher %><br />
                                             出版日期：<%=myDateFormat(data[0].date) %><br />
                                             語言：<%= data[0].language %><br/>
                                             分享：LINE,FB</p>
-										<a href="http://webpac.ntub.edu.tw/webpacIndex.jsp" class="button">借閱</a>
+										<form onsubmit="return confirm('是否確定更改?');" role="form" method="get" enctype="multipart/form-data" action="/collectbook">
+											
+												<input type="hidden" value = "<%= data[0].bookNo %>" name="bookNo">
+	
+												<body onload="ShowTime()">
+														
+															<input type="hidden" value = "showbox" name="date">
+														
+												</body>
+	
+												<button type="submit" class="btnbtn-default" >
+														收藏
+												</button>
+											</form> 
 									</li>
 								</ul>
 							</li>
 							<!-------------------------->
-                            	<p class="title">筆記導讀</p>
+                            	<p class="title">文章導讀</p>
                                 <!-------------------------->
+								<% for(var i=0; i<data.length; i++) {%>
                                 <li class="clearfix">
-									<p class="photo"><img src="images/products_01.jpg" width="120" height="120"/></p>
-									<h3>貓貓蟲咖波：食物世界超棒（首刷限量贈品版）</h3>
-									<p class="text">百分之百台灣原汁原味獨創角色!<br />
-                                        國際粉絲突破50萬!<br />
-                                        Line貼圖排行榜上居高不下長青角色!<br/>
-                                        貓貓蟲咖波好可愛啊<br/>
-                                        對於喜愛貓貓蟲咖波的朋友們，千萬不能錯過阿<br/>
-                                        這本書值得收藏一番!</p>
+									<p class="photo"><img src="<%= "images/" + data[i].avatar%>"width="120" height="120"/></p>
+									<h3><%= data[i].noteTitle %></h3>
+									<p class="text"><%= data[i].noteContent %></p>
                                     <a href="#" class="icon">
-                                       10 <span class="glyphicon glyphicon-thumbs-up"></span>
                                        3 <span class="glyphicon glyphicon-comment"></span>
                                     </a> 
-									<p class="date">2017.08.08</p>	
+									<p class="date"><%= myDateFormat(data[i].date) %></p>	
 								</li>
+								<% } %> 
+								<li class="clearfix">
+									<p class="photo"><img src="<%= "images/" +avatar %>" width="80" height="80"/></p>
+									<h3><%= nickName %></h3>
+									<p class="text message">貓貓蟲咖波好可愛啊<br/>
+                                        感謝推薦<br/>
+                                        來去收藏一番!
+									</p>
+                                     
+									<p class="text"><a href="/discuss3">讚</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/discuss3"><button type="submit"  >
+														回覆
+												</button></a></p>
+										
+									
+								</li>
+								
 							</ul>
                             <p class="pagetop"><a href="/discuss2">TOP ↑</a></p>
 								</div>

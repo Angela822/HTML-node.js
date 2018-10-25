@@ -11,13 +11,13 @@ var pool = require('./lib/db.js');
 router.get('/', function(req, res, next) {
     var pointData;
     var rankData;
-	pool.query('SELECT a.point, a.serNo,b.avatar,b.nickName,c.title,c.picture FROM rankperson a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN title AS c ON c.userid=b.userid WHERE a.serNo%2<>0 ', function(err, results) {       
+	pool.query('SELECT a.point, a.rankNo,b.avatar,b.nickName,c.title,c.picture FROM rankperson a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN title AS c ON c.userid=b.userid WHERE a.serNo%2<>0 AND a.date LIKE "2018%" ', function(err, results) {       
 		if (err) {
 			pointData=[];
 		}else{
 			pointData=results;
 		}
-        pool.query('SELECT a.point, a.serNo,b.avatar,b.nickName,c.title,c.picture FROM rankperson a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN title AS c ON c.userid=b.userid WHERE a.serNo%2=0', function(err, results) {
+        pool.query('SELECT a.point, a.rankNo,b.avatar,b.nickName,c.title,c.picture FROM rankperson a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN title AS c ON c.userid=b.userid WHERE a.serNo%2=0 AND a.date LIKE "2018%"', function(err, results) {
             if (err) {
                 rankData=[];
             }else{

@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
             res.render('bookrank', {bookdata:results});
         } 
 	});	*/
-	pool.query('SELECT a.rankNo,a.date,b.bookName,b.picture,b.author,b.publisher,b.content FROM rankbook a INNER JOIN book b ON a.bookNo=b.bookNo WHERE a.date LIKE "2017%" ', function(error, rows, fields) {       
+	pool.query('SELECT a.rankNo,a.date,a.serNo,b.bookName,b.picture,b.author,b.publisher,b.content FROM rankbook a INNER JOIN book b ON a.bookNo=b.bookNo WHERE a.date between "2017-01-01" and "2017-12-31" GROUP BY serNo ', function(error, rows, fields) {       
 		if (error) {
 			res.render('bookrank2017', {data:[]});
 		}else{

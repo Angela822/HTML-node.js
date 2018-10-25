@@ -20,7 +20,7 @@
 		<link rel="stylesheet" href="css/register.css" />
 		<link rel="stylesheet" href="css/login.css" />
 		<link rel="stylesheet" href="css/collect.css" />
-		<link rel="stylesheet" href="css/personal.css" />
+		<link rel="stylesheet" href="css/personal1.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
 
 		<!--web icon-->
@@ -57,7 +57,7 @@
                                     <!--網站規則-->
 									<li><a class="icon fa-retweet" href="/userRules"><span>網站規則</span></a></li>
                                     <!--個人資訊-->
-									<li><a class="icon fa-sitemap" href="//personal0?userid=<%= userid %>"><span>個人資訊</span></a></li>
+									<li><a class="icon fa-sitemap" href="/personal0"><span>個人資訊</span></a></li>
 								</ul>
 
 								<!--login button-->
@@ -84,9 +84,9 @@
 													<!-- Excerpt -->
 														<article class="box excerpt">
 															<header>
-																<p class="photo"><img src="<%= "images/" +avatar %>" width="120" height="120"></p>
+																<p class="photo"><a href="/personal0 %>"><img src="<%= "images/" +avatar %>" width="120" height="120"></a></p>
 
-																<h3><%= nickName %></h3>
+																<h3><a href="/personal0 %>"><%= nickName %></a></h3>
                                                                 <p class="persign"><%= sign %></p>
                                                                 <!--<span class="level">Lv.20</span>-->
 																<a href="\personal2" class="button">編輯個資</a>
@@ -103,10 +103,12 @@
 																<h4>動態消息</h4>
 															</header>
 															<ul>
+															<% for(var i=0; i<messengeData.length; i++){ %>
 																<li>
-																	
+																	<p class="photo"><img src="<%= "images/" + messengeData[i].avatar %>" width="50" height="50"></p>
+																	<p class="persign1"><strong><%= messengeData[i].nickName %></strong>回覆了你<strong><%= messengeData[i].noteTitle %></strong>的筆記</p>
 																</li>
-																
+															 <% } %>	
 																
 															</ul>	
 																
@@ -121,23 +123,17 @@
 													<!-- Excerpt -->
 														<article class="box excerpt">
 															<header>
-																<h4>你可能會喜歡</h4>
+																<h4>好書推薦</h4>
 															</header>
 															<ul>
 																<li>
 																	<section>
-																		<p class="picBook">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/pic1.jpg" width="180" height="200"/></p>
+																		<p class="picBook">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src = "<%= bookData[0].picture %>" width="180" height="200"/></p>
 																	</section>
 																	<article>
-																		<h2>貓貓蟲咖波</h2>
-																		<p>史上最萌的獵奇向作品，滿滿的補血元素最適合疲累一整天的你！
-
-　　咖波是長得像貓又像蟲的不明物種，喜歡撒嬌，愛搗蛋。
-　　平常有六隻腳，身體會伸縮不固定。看到什麼都想吃，明明是超級吃貨卻超討厭蔬菜。
-　　咖波的日常就是不斷的吃吃吃和惡作劇，還有他的家人狗狗與飼主拉拉，以及其他「食物」們的日常生活詼諧逗趣，帶給你萌度爆表的獵奇向作品初體驗！
-
-　　讀者一致肯定：「有點獵奇又愛賣萌的療癒感真是讓人鼻血狂噴啊！」</p>
-																		<a href="discuss3.html" class="button">前往...</a>
+																		<h2><%= bookData[0].bookName %></h2>
+																		<p><%= bookData[0].content %>&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;</p>
+																		<a href="/userdiscuss3?bookName=<%= bookData[0].bookName %>" class="button">前往查看...</a>
 																	</article>
 																</li>
 																</ul>
@@ -154,60 +150,68 @@
                              <!-- main -->
                              
                                 <div id="collectionLarge">
-                                 <p onclick="myArticle()" class="title">我的文章&nbsp;-&nbsp;2018年2月</p>
+                                 <p onclick="myArticle()" class="title">我的文章&nbsp;-&nbsp;2018年10月</p>
                                     <ul id="myArticle">
 										<% for(var i=0; i<noteData.length; i++){ %>
-											<li>										
+											<li>
 												<section>
 													<p class="picBook"><img src = "<%= noteData[i].picture %>" width="180" height="200"/></p>
 												</section>
 												<article>
 													<h2><%= noteData[i].noteTitle %></h2>
-													<p><%= noteData[i].noteContent %></p>
-													<a href="\personal3" class="button">編輯...</a><br><br>
-													<a href="/discuss3" class="button">前往...</a>
-													<p>最終修改時間 : <%= myDateFormat(noteData[i].date) %></p>													
+													<textarea rows="3" max-rows="20" readonly value="txt"><%= noteData[i].noteContent %></textarea>
+													
+													<a href="/discuss3" class="button">前往查看...</a>&nbsp;
+													<a href="\personal3" class="button">&nbsp;刪除&nbsp;</a>
+													<a href="\personal3" class="button">&nbsp;編輯&nbsp;</a>
+													<p>
+													最終修改時間 : <%= myDateFormat(noteData[i].date) %>
+													</p>
+																										
 												</article>
 											</li>
                                         <% } %> 								 
                                     </ul>
 									
                                 </div>
+								
                                 <p class="clear"></p>
                             <!------------------------------------>   
                      <!--<div id="collectionSmall">-->
-							
+									<p onclick="myCollection()" class="title2">我的文章&nbsp;-&nbsp;2018年10月</p>
+									
+									
 									<p onclick="myCollection()" class="title2">收藏列表&nbsp;-&nbsp;2018年2月</p>
                                     <ul id="myCollection">
-									<div id="abgne-block-20120327">
-										<ul class="tabs">
-										 <li><span><%= collectionData[6].bookName %></span></li>
-										 <li><span><%= collectionData[3].bookName %></span></li>
-										 <li><span><%= collectionData[3].bookName %></span></li>
-										</ul>
-										<div class="tab_container">
-										 <ul class="tab_content">
-										  <li>
-											<img src = "<%= collectionData[6].picture %>" width="300" height="300" alt="Happy Birthday"/>
-										   <h3 ><%= collectionData[6].bookName %></h3>
-										   <p><%= noteData[6].noteContent %>
-									  。</p>
-										  </li>
-										  <li>
-											<img src = "<%= collectionData[3].picture %>" width="300" height="300" alt="Happy Birthday"/>
-										   <h3><%= collectionData[3].bookName %></h3>
-										   <p><%= noteData[3].noteContent %></p>
-										  </li>
-										  <li>
-											<img src = "<%= collectionData[3].picture %>" width="300" height="300" alt="Happy Birthday"/>
-										   <h3 ><%= collectionData[3].bookName %></h3>
-										   <p><%= noteData[3].noteContent %></p>
-										  </li>
-										 </ul>
-									  <a style='float:right;margin-right:10px;' href="#">TOP</a>
-										</div>
-										</ul>
-									   </div>
+										<div id="abgne-block-20120327">
+											
+											<div class="tab_container">
+											<% for(var i=0; i<collectionData.length; i++){ %>		
+											 <ul class="tab_content">
+														  
+											  <li>
+													
+												<img src = "<%= collectionData[i].picture %>" width="190" height="190" />
+												<h3><a href="/userdiscuss3?bookName=<%= collectionData[i].bookName %>"><%= collectionData[i].bookName %></a></h3>
+											   <p><br>作者：<%= collectionData[i].author %> <br> 出版社：<%= collectionData[i].publisher %> <br> 
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											   <a href="/userdiscuss3?bookName=<%= collectionData[i].bookName %>" class="button">前往查看...</a> </p>
+											  
+											 
+											  </li>
+											  
+											  
+											 </ul>
+											 <% } %>
+											 
+											 
+										  <a style='float:right;margin-right:10px;' href="#">TOP</a>
+											</div>
+											</ul>
+										   </div>
 									  
 					 
 				<!--</div>-->
@@ -288,9 +292,9 @@
 			
 			<script src="js/collect.js"></script>
 			<a href="/personal"><img class="fix" src="images/plus-g.png"></a>
-		<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
-		<script type="text/javascript" src="js/jquery.contentcarousel.js"></script>
-		<script type="text/javascript">
+			<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+			<script type="text/javascript" src="js/jquery.contentcarousel.js"></script>
+			<script type="text/javascript">
 			$('#ca-container').contentcarousel();
 		</script>
 	</body>

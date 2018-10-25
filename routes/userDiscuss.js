@@ -9,7 +9,7 @@ var pool = require('./lib/db.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-   pool.query('SELECT a.noteContent,b.nickName,b.avatar,c.bookName,c.content FROM note a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN book AS c ON c.bookNo=a.bookNo', function (error, results, fields) {
+   pool.query('SELECT a.noteContent,a.date,a.noteId,b.nickName,b.avatar,c.bookName,c.content,c.type FROM note a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN book AS c ON c.bookNo=a.bookNo GROUP BY noteId', function (error, results, fields) {
         if (error){
             res.render('userDiscuss', {data:[]});
         }else{

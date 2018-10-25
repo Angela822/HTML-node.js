@@ -35,7 +35,7 @@
 									<li>
 										<a href="#" class="icon fa-bar-chart-o"><span>排行榜</span></a>
 										<ul>
-											<li><a href="/userbookRank">熱門書排行榜</a></li>
+											<li><a href="/userbookrank">熱門書排行榜</a></li>
 											<li><a href="/userpointRank">文青度排行榜</a></li>
 										</ul>
 									</li>
@@ -80,7 +80,7 @@
                                                                
                                                                
                                                                  <li>
-                                                                    <span class="opener"><a href="#cat_01">2017</a></span>
+                                                                    <span class="opener"><a href="/userbookrank2017">2017</a></span>
                                                                     <ul>
                                                                         <li><a href="#">1</a></li>
                                                                         <li><a href="#">2</a></li>
@@ -92,7 +92,7 @@
                                                                 
                                                                
                                                                 <li>
-                                                                    <span class="opener"><a href="#cat_01">2016</a></span>
+                                                                    <span class="opener"><a href="/userbookrank2016">2016</a></span>
                                                                     <ul>
                                                                         <li><a href="#">Lorem Dolor</a></li>
                                                                         <li><a href="#">Ipsum Adipiscing</a></li>
@@ -126,7 +126,7 @@
 									<!-- ▼▼商品1從此開始▼▼ -->
 									<% for(var i=0; i<data.length; i++) {%>
 									<li class="clearfix">
-										<h1  align="left">Top.<%= data[i].serNo %></h1>
+										<h1  align="left">Top.<%= data[i].rankNo %></h1>
 										
                                         <div class="clad" clad >
                                         <p class="imageView"><a data-fancybox="gallery" href="<%= data[i].picture %>">
@@ -146,7 +146,7 @@
                                     
                                   
 								
-								<p align="left" class="pagetop"><a href="/bookrank">回到本頁最上方</a></p>
+								<p align="left" class="pagetop"><a href="/userbookrank">回到本頁最上方</a></p>
 							</li>
 							<!-- ▲▲分類5到此為止▲▲ -->
 						

@@ -1845,23 +1845,26 @@
 		
 /* collectionLarge */
 	#collectionLarge li{
-		height:225px;
 		border:solid 2px #999;
 		border-radius:4px;
 		padding:0.6em;
 		clear:left;
+		margin-bottom:30px;
 	}
 	
 	#collectionLarge .button{
 		margin-top:-35px;
+		margin-right:10px;
 		float:right;
 	}
 		
 	#collectionLarge section {
 		float:left;
+		margin:20px 5px 20px 0px;
 	}
 	
 	#collectionLarge article{
+		height:250px;
 		margin-left:180px;
 		border-left: 2px solid rgba(203, 81, 65,0.6);
 		padding: 1em;
@@ -1871,6 +1874,12 @@
 	#collectionLarge article h2{
 		font-size:20px;
 		font-weight:600;
+	}
+	
+	#collectionLarge textarea{
+		margin-top:-20px;
+		margin-bottom:40px;
+		border:none
 	}
 	
 	

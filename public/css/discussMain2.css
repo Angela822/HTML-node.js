@@ -1674,6 +1674,19 @@
 		margin-top:-1.5em;
 	}
 	
+	#products_contents .collectbtn{
+		float:right;
+		margin-bottom:10px;
+		margin-top:-80px;
+	}
+	
+	#products_contents .message {
+		background-color:rgba(208,208,208,0.5);
+		border-radius:4px;
+		padding:10px;
+		margin-right:30px;
+	}
+	
 	#products_contents .date {
 		width:6.25em;
 		float:right;

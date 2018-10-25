@@ -9,17 +9,17 @@ var pool = require('./lib/db.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-   //取得使用者傳來的參數
    var bookName=req.param('bookName');
-
-   pool.query('select * from book where bookName=?',[bookName],  function (err, rows, fields) {
+   
+   pool.query('SELECT a.noteContent,a.noteTitle,a.noteId,b.nickName,b.avatar,c.bookName,c.bookNo,c.author,c.publisher,c.date,c.type,c.language,c.picture,c.authorIntro,c.content FROM note a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN book AS c ON c.bookNo=a.bookNo where bookName=?  GROUP BY noteId',[bookName],  function (err, rows, fields) {
         if (err) throw err;
 
 		if(rows.length==0){
 			res.render('DataNotFound', {});         
 		}else{
-			res.render('discuss2', { data:rows });   
-		}	    
+			res.render('discuss2', { data: rows });   
+		}	
+	    
     });
 });
 

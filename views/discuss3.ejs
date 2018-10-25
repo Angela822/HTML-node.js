@@ -12,6 +12,7 @@
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/discuss3.css" />
+		<link rel="stylesheet" href="css/login.css" />
         <link rel="stylesheet" href="css/menu.css" />
         <link rel="stylesheet" href="css/discussMain2.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
@@ -30,25 +31,30 @@
 							<h2 class="logo"><a href="/index"><img src="images/TITLE.png" width="260" height="57"></a></h2>
 
 						<!-- Nav -->
-							<nav id="nav">
+						<nav id="nav">
 								<ul>
                                 	<!--首頁-->
-									<li><a class="icon fa-home" href="/#"><span>首頁</span></a></li>
+									<li><a class="icon fa-home" href="/userIndex"><span>首頁</span></a></li>
                                     <!-------------------------------------------------------------------------->
                                     <!--排行榜-->
 									<li>
 										<a href="#" class="icon fa-bar-chart-o"><span>排行榜</span></a>
 										<ul>
-											<li><a href="/bookrank">熱門書排行榜</a></li>
-											<li><a href="/pointrank">文青度排行榜</a></li>
+											<li><a href="/userbookRank">熱門書排行榜</a></li>
+											<li><a href="/userpointRank">愛閱點排行榜</a></li>
 										</ul>
 									</li>
                                    	<!-------------------------------------------------------------------------->
                                    	<!--討論區-->
-									<li><a class="icon fa-cog" href="discuss"><span>討論區</span></a></li>
+									<li><a class="icon fa-cog" href="/userDiscuss"><span>討論區</span></a></li>
                                     <!--網站規則-->
-									<li><a class="icon fa-retweet" href="rules"><span>網站規則</span></a></li>                                    
+									<li><a class="icon fa-retweet" href="/userRules"><span>網站規則</span></a></li>
+                                    <!--個人資訊-->
+									
 								</ul>
+
+								<!--login button-->
+								
 							</nav>
 					</div>
 				</div>
@@ -67,12 +73,16 @@
                                             <h2>分類 Category</h2>
                                         </header>
 									<ul>
-										<li><a href="/discuss#All">全部 All</a></li>
-										<li><a href="/discuss#Chinese">中文書 Chinese</a></li>
-										<li><a href="/discuss#Foreign language">外文書 Foreign language</a></li>
-										<li><a href="/discuss#reference book">參考書 reference book</a></li>	
-										<li><a href="/discuss#Simplified Chinese">簡體書 Simplified Chinese</a></li>
-										<li><a href="/discuss#Simplified Chinese">雜誌,MOOK</a></li>
+										<li><a href="/discuss">全部 All</a></li>
+												<li><a href="/discusslit">文學小說 literature</a></li>
+												<li><a href="/discusstrav">旅遊 travel</a></li>
+												<li><a href="/discussfin">商業理財 Financial Management</a></li>
+												<li><a href="/discussfood">飲食料理 Dietary Foodk</a></li>	
+												<li><a href="/discusspsy">心理勵志 Psychological Motivation</a></li>
+												<li><a href="/discussedu">教育/親子教養,Parent and child Education</a></li>
+												<li><a href="/discusslan">語言/字辭典,languageK</a></li>
+												<li><a href="/discussart">藝術設計,Art Design</a></li>
+												<li><a href="/discusslif">生活風格,Life Style</a></li>
 									</ul>
 									</nav>
 								</article>
@@ -89,9 +99,11 @@
 								<ul>
 									<!-- ▼▼商品1從此開始▼▼ -->
 									<li class="clearfix">
+											 
 										<p class="picBook"><img src="<%= data[0].picture %>" width="180" height="200"</p>
-										<p class="type"><a href="#cat_05">簡體書</a></p>
-                                        <a href="#" class="bookmark"><span class="glyphicon glyphicon-bookmark"></span></a>
+										<p class="type"><a href="#cat_05"><%= data[0].type %></a></p>
+										
+										
 										<h3 class="name"><%= data[0].bookName %></h3>
 										<p class="word">作者：<%= data[0].author %><br />
                                             出版社：<%= data[0].publisher %><br />
@@ -116,73 +128,29 @@
 										<%= data[0].authorIntro %></p>										
 									</li>
 									<!-------------------------->
-										<p class="title">筆記導讀</p>
+										<p class="title">文章導讀</p>
 									<!-------------------------->
                                     <ul>
+									<% for(var i=0; i<data.length; i++) {%>
 										<li class="clearfix">
-										<p class="photo"><img src="images/products_01.jpg" width="120" height="120" alt="白菜 照片" /></p>
-										<p class="type"><a href="/discuss#Simplified Chinese">簡體書</a></p>
-										<h3><a href="/discuss3">貓貓蟲咖波：食物世界超棒（首刷限量贈品版）</a></h3>
-										<p class="text">百分之百台灣原汁原味獨創角色!<br />
-									國際粉絲突破50萬!<br />
-										Line貼圖排行榜上居高不下長青角色!</p>    
+												<p class="photo"><img src="<%= "images/" + data[i].avatar%>"width="120" height="120"/></p>
+										
+										<h3><a href="/discuss3"><%= data[i].noteTitle %></a></h3>
+										<p class="text"><%= data[i].noteContent %></p>    
                                         <a href="#" class="icon">
                                            10 <span class="glyphicon glyphicon-thumbs-up"></span>
                                            3 <span class="glyphicon glyphicon-comment"></span>
                                         </a>                                   	
-                                   		<p class="date">2017.08.11</p>
+                                   		<p class="date"><%= myDateFormat(data[i].date) %></p>
 										<a href="/discuss2" class="button">More</a>
 									</li>
+									<% } %> 
 									
-									<!-- ▲▲商品1到此為止▲▲ -->
-									<!-- ▼▼商品2從此開始▼▼ -->
-									<li class="clearfix">
-										<p class="photo"><img src="images/products_02.jpg" width="120" height="120"></p>
-										<p class="type"><a href="/discuss#Chinese">中文書</a></p>
-										<h3>貓貓蟲咖波好可愛啊~~</h3>
-										<p class="text">依據最新日本消費稅調整，給你最正確的旅遊資訊!<br />
-										必備景點與路線圖:京阪神奈路線圖|大阪市&神戶市地鐵。 </p>
-                                        <a href="#" class="icon">
-                                           10 <span class="glyphicon glyphicon-thumbs-up"></span>
-                                           3 <span class="glyphicon glyphicon-comment"></span>
-                                        </a>   
-                                        <p class="date">2017.08.10</p>
-										<a href="/discuss2" class="button">More</a>
-									</li>
-									<!-- ▲▲商品2到此為止▲▲ -->
-									<!-- ▼▼商品3從此開始▼▼ -->
-									<li class="clearfix">
-										<p class="photo"><img src="images/products_03.jpg" width="120" height="120"></p>
-										<p class="type"><a href="/discuss#reference book">參考書</a></p>
-										<h3>對於喜愛貓貓蟲咖波的朋友們，千萬不能錯過阿</h3>
-										<p class="text">改編自2015年全球最催淚的極短篇動畫<br />
-										只要生命愛過，溫暖將永遠被記得<br />
-										讓媽媽與曾在媽媽懷裡的你</p>
-                                        <a href="#" class="icon">
-                                           10 <span class="glyphicon glyphicon-thumbs-up"></span>
-                                           3 <span class="glyphicon glyphicon-comment"></span>
-                                        </a>   
-                                        <p class="date">2017.08.10</p>
-										<a href="/discuss2" class="button">More</a>
-									</li>
-									<!-- ▲▲商品3到此為止▲▲ -->
-									<!-- ▼▼商品4從此開始▼▼ -->
-									<li class="clearfix">
-										<p class="photo"><img src="images/products_04.jpg" width="120" height="120"></p>
-										<p class="type"><a href="/discuss#Simplified Chinese">簡體書</a></p>
-										<h3>這本書值得收藏一番!</h3>
-										<p class="text">千呼萬喚!霍格華茲圖書館鎮館之寶開放收藏!<br />
-										亞洲唯一!</p>
-                                        <a href="#" class="icon">
-                                           10 <span class="glyphicon glyphicon-thumbs-up"></span>
-                                           3 <span class="glyphicon glyphicon-comment"></span>
-                                        </a>   
-                                        <p class="date">2017.08.10</p>
-										<a href="/discuss2" class="button">More</a>
-									</li>
 									<!-- ▲▲商品4到此為止▲▲ -->
 									</ul>
-                                    <p class="pagetop"><a href="/discuss3">TOP ↑</a></p>
+									
+									<p class="pagetop"><a href="/discuss3">TOP ↑</a></p>
+									
 								</div>
 
 						</div>
