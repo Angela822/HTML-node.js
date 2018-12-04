@@ -38,7 +38,7 @@ router.get('/', function(req, res, next) {
                 res.render('dataNotFound', {query:"[客戶清單]"});
             }else{
                 var recordNo=(pageNo-1)*linePerPage+1;
-                res.render('discuss', {data:results, pageNo:pageNo, totalLine:totalLine, totalPage:totalPage, startPage:startPage, linePerPage:linePerPage, navSegments:navSegments});
+                res.render('userDiscuss', {data:results, pageNo:pageNo, totalLine:totalLine, totalPage:totalPage, startPage:startPage, linePerPage:linePerPage, navSegments:navSegments});
             }
         }); 
     }); 

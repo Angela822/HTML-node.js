@@ -1,0 +1,17 @@
+div.col-md-12{
+	margin-left:200px;
+	margin-bottom: 60px;
+	padding:60px;
+	border: solid 2px #ed786a;
+	border-radius: 4px;
+	box-shadow: 2px 2px 3px #888888;
+	
+	word-wrap: break-word;/*不超出*/
+}
+
+#products_contents h2{
+	margin-left:520px;
+	margin-top: -60px;
+}
+
+

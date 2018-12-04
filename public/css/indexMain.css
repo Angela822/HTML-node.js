@@ -1819,6 +1819,14 @@
 				padding: 10px 18px;
 				background-color: #f44336;
 			}
+
+			.closen {
+				width: auto;
+				margin-left: 160px;
+				margin-right: 160px;
+				padding: 10px 18px;
+				background-color: #f44336;
+			}
 			
 			/* Center the image and position the close button */
 			.imgcontainer {

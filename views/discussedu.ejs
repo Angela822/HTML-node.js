@@ -113,7 +113,7 @@
 										<a href="#" class="icon fa-bar-chart-o"><span>排行榜</span></a>
 										<ul>
 											<li><a href="/bookrank">熱門書排行榜</a></li>
-											<li><a href="/pointrank">文青度排行榜</a></li>
+											<li><a href="/pointrank">TB排行榜</a></li>
 										</ul>
 									</li>
                                    	<!-------------------------------------------------------------------------->
@@ -181,14 +181,14 @@
 										<ul id="serch">
 										<!-- ▼▼分類1從此開始▼▼ -->
 										<li id="All">
-											<p class="title">全部 ALL</p>
+											<p class="title">教育/親子教養,Parent and child Education</p>
 											<ul method="get" action="/discuss2">
 												<!-- ▼▼項目1從此開始▼▼ -->
 												<% for(var i=0; i<data.length; i++) {%>
 													<li class="clearfix">
 														<p class="photo"><img src="images/<%= data[i].avatar %>" width="120" height="120"></p>
 														<p class="type"><a href="#Simplified Chinese"><%= data[i].type %></a></p>
-														<h3><a href="/discuss3?bookName=<%= data[i].bookName %>"><%= data[i].bookName %></a></h3>
+														<h3><a href="/discuss3?bookNo=<%= data[i].bookNo %>"><%= data[i].bookNo %></a></h3>
 														<p class="text"><%= data[i].noteContent %></p>
 														<span type="text" id="show"></span>
 														<i onclick="like()" class="glyphicon glyphicon-thumbs-up"></i>
@@ -197,13 +197,13 @@
 														   
 													   
 														<p class="date"><%= myDateFormat(data[i].date) %></p>
-														<a href="/discuss2?bookName=<%= data[i].bookName %>" class="button">More</a>		
+														<a href="/discuss2?bookNo=<%= data[i].bookNo %>" class="button">More</a>		
 													</li>
 												<% } %> 
 												
 												<!-- ▲▲項目1到此為止▲▲ -->
 											</ul>
-											<p class="pagetop"><a href="/discuss">TOP ↑</a></p>
+											<p class="pagetop"><a href="/discussedu">TOP ↑</a></p>
 										</li>
 										<!-- ▲▲分類1到此為止▲▲ -->
 										</ul>

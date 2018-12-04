@@ -10,7 +10,7 @@ var pool = require('./lib/db.js');
 /* post home page. */
 router.post('/', function(req, res, next) {
     //取得使用者傳來的參數
-    var userid=req.param("userid");
+    var userid=req.param("email");
     var password=req.param("password");
    // var pswRepeat=req.param("pswRepeat");
     var nickName=req.param("nickName");
@@ -26,6 +26,7 @@ router.post('/', function(req, res, next) {
     pool.query('INSERT INTO users SET ?',newData, function(err, rows, fields) {
         if (err){
             res.render('registerFail', {});     //註冊失敗
+            console.log(err);
         }else{
             res.render('registerSuccess', {});  //註冊成功
         }

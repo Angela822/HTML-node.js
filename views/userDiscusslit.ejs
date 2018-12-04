@@ -42,7 +42,7 @@
 										<a href="#" class="icon fa-bar-chart-o"><span>排行榜</span></a>
 										<ul>
 											<li><a href="/userbookRank">熱門書排行榜</a></li>
-											<li><a href="/userpointRank">文青度排行榜</a></li>
+											<li><a href="/userpointRank">TB排行榜</a></li>
 										</ul>
 									</li>
                                    	<!-------------------------------------------------------------------------->
@@ -102,7 +102,7 @@
 												<li><a href="/userDiscussfood">飲食料理 Dietary Food</a></li>	
 												<li><a href="/userDiscusspsy">心理勵志 Psychological Motivation</a></li>
 												<li><a href="/userDiscussedu">教育/親子教養,Parent and child Education</a></li>
-												<li><a href="/userDiscusslan">語言/字辭典,languageK</a></li>
+												<li><a href="/userDiscusslan">語言/字辭典,language</a></li>
 												<li><a href="/userDiscussart">藝術設計,Art Design</a></li>
 												<li><a href="/userDiscusslif">生活風格,Life Style</a></li>
 												
@@ -117,37 +117,23 @@
 										<ul id="serch">
 										<!-- ▼▼分類1從此開始▼▼ -->
 										<li id="All">
-											<p class="title">全部 ALL</p>
+											<p class="title">文學小說 literature</p>
 											<ul method="get" action="/userdiscuss2">
 												<!-- ▼▼項目1從此開始▼▼ -->
 												<% for(var i=0; i<data.length; i++) {%>
 													<li class="clearfix">
 														<p class="photo"><img src="images/<%= data[i].avatar %>" width="120" height="120"></p>
 														<p class="type"><a href="#Simplified Chinese">文學小說</a></p>
-														<h3><a href="/userdiscuss3?bookName=<%= data[i].bookName %>"><%= data[i].bookName %></a></h3>
+														<h3><a href="/userdiscuss3?bookNo=<%= data[i].bookNo %>"><%= data[i].bookName %></a></h3>
 														<p class="text"><%= data[i].noteContent %></p>
 														<a href="#" class="icon">
 														10 <span class="glyphicon glyphicon-thumbs-up"></span>
-														3 <span class="glyphicon glyphicon-comment"></span>
+														3
 														</a> 
-														<a href="/userDiscuss2?bookName=<%= data[i].bookName %>" class="button">More</a>
+														<a href="/userDiscuss2?bookNo=<%= data[i].bookNo %>" class="button">More</a>
 														<p class="date" ><%=myDateFormat(data[i].date) %></p>
 														<div id="comment">	
-															<form role="form" method="get" action="/messAdd">
-																<!-----留言---------------->
-																<div class="form-group"> 
-																  <div class="wrap">
-																	<input type="text" id="comText" class="form-control" name="mesContent"/>
-																	
-																	<button type="submit" class="btn btn-default" id="comInput">留言</button>
-																    <ul id="comlist"></ul>
-																  </div>
-																</div> 
-																<!---------------------------->
-															<body onload="ShowTime()">
-																<form id="form1" runat="server">
-																	<input type="hidden" value = "showbox" name="date">
-																</form>
+															
 															</body>
 														   </form>
 														</div>                  	
@@ -157,7 +143,7 @@
 												<% } %> 
 												<!-- ▲▲項目1到此為止▲▲ -->
 											</ul>
-											<p class="pagetop"><a href="/userDiscuss">TOP ↑</a></p>
+											<p class="pagetop"><a href="/userDiscusslit">TOP ↑</a></p>
 										</li>
 										<!-- ▲▲分類1到此為止▲▲ -->
 										</ul>

@@ -40,7 +40,7 @@
 										<a href="#" class="icon fa-bar-chart-o"><span>排行榜</span></a>
 										<ul>
 											<li><a href="/userbookRank">熱門書排行榜</a></li>
-											<li><a href="/userpointRank">愛閱點排行榜</a></li>
+											<li><a href="/userpointRank">TB排行榜</a></li>
 										</ul>
 									</li>
                                    	<!-------------------------------------------------------------------------->
@@ -99,7 +99,7 @@
 															<% for(var i=0; i<messengeData.length; i++){ %>
 																<li>
 																	<p class="photo"><img src="<%= "images/" + messengeData[i].avatar %>" width="50" height="50"></p>
-																	<p class="persign1"><strong><%= messengeData[i].nickName %></strong>回覆了你<strong><%= messengeData[i].noteTitle %></strong>的筆記</p>
+																	<p class="persign1"><strong><%= messengeData[i].nickName %></strong>回覆了你&nbsp;<strong><%= messengeData[i].noteTitle %></strong>&nbsp;的筆記</p>
 																</li>
 															 <% } %>	
 																
@@ -125,7 +125,7 @@
 																	<article>
 																		<h2><%= booksData[0].bookName %></h2>
 																		<p><%= booksData[0].content %></p>
-																		<a href="/discuss3" class="button">前往...</a>
+																		<!--<a href="/discuss3" class="button">前往...</a>-->
 																	</article>
 																</li>
 																</ul>
@@ -136,35 +136,37 @@
 										</section>
 								</div>
                                 
-                                
+                        <!--        
                      <!-- Content -->
                           <div id="content" class="8u 12u(mobile) important(mobile)">
-                             <!-- main -->
                              
-                                <div id="collectionLarge">
-								<p class="title">編輯筆記</p>
 			<form onsubmit="return confirm('是否確定更改?');" role="form" method="get" enctype="multipart/form-data" action="/notedEdit">
             <div class="row">
 									
             <div class="col-md-12">
 				
                     
-					
+					<!-- main -->
+                             
+                                <div id="collectionLarge">
+								<p class="title">編輯文章</p>
 					<div class="form-group">                     
-                        <label>標題</label>
-						
-						<select class="form-control"  id="noteTitle"  name="noteId" >
-							<option value="">選擇筆記</option>
-								<% for(var i=0; i<noteData.length; i++){ %>  
-							 
-									<option value="<%= noteData[i].noteId %>"><%= noteData[i].noteTitle  %></option>                                
-								<% } %>                                                         
-						</select>         
+                        <label>圖書名稱</label>
+						<%= noteData[0].bookName %>
+					<input type="hidden" class="form-control" >
+					</div>
+					
+						 <div class="form-group">                     
+							<label>標題</label>
+							
+							<input type="text" class="form-control" name="noteTitle"value="<%= noteData[0].noteTitle %>"/>
+						         
                     </div>
                     
                     <div class="form-group">                     
-							<label>編寫筆記</label>
-							<textarea name="noteContent" cols="50" rows="5"> </textarea>
+							<label>編寫文章</label>
+							
+							<textarea name="noteContent" cols="50" rows="5"value="<%= noteData[0].noteContent %>"/>  <%= noteData[0].noteContent %> </textarea>
 					</div>
 					
 					<body onload="ShowTime()">
@@ -177,11 +179,10 @@
                         儲存
                     </button>
 					&nbsp;&nbsp;&nbsp;
-					<a href="\personal0"><button type="submit" class="btn btn-default">
-                        取消
-                    </button></a>
-					&nbsp;&nbsp;&nbsp;
+					<form onsubmit="return confirm('是否確定取消?');" role="form" method="get" enctype="multipart/form-data" >
 					
+					&nbsp;&nbsp;&nbsp;
+				   </form>
                 </form>                
             </div>
         </div>    

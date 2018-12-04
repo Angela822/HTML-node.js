@@ -31,6 +31,7 @@ var personal2 = require('./routes/personal2');
 var personal3 = require('./routes/personal3');
 var personalUpdate = require('./routes/personalUpdate');
 var noteAdd = require('./routes/noteAdd');
+var noteDelete = require('./routes/noteDelete');
 var messAdd = require('./routes/messAdd');
 var notedEdit = require('./routes/notedEdit');
 var collectbook = require('./routes/collectbook');
@@ -79,6 +80,43 @@ var pointrank2016 = require('./routes/pointrank2016');
 // 增加以下的require index中的register
 //-------------------------------------------------------
 var register = require('./routes/register');
+
+//-------------------------------------------------------
+// 增加以下的require(後端)
+//-------------------------------------------------------
+var takeBookMangerIndex = require('./routes/takeBookMangerIndex');
+var mangerIndex = require('./routes/mangerIndex');
+
+var mangerRules = require('./routes/mangerRules');
+var OneRule = require('./routes/OneRule');
+var ruleDelete = require('./routes/ruleDelete');
+var ruleModifyForm = require('./routes/ruleModifyForm');
+var ruleModify = require('./routes/ruleModify');
+var ruleAddForm = require('./routes/ruleAddForm');
+var ruleAdd = require('./routes/ruleAdd');
+
+var bookAddForm = require('./routes/bookAddForm');
+var bookAdd = require('./routes/bookAdd');
+var bookListByPageManger = require('./routes/bookListByPageManger');
+var bookListSearchByName = require('./routes/bookListSearchByName');
+var bookOneItem = require('./routes/bookOneItem');
+var bookUpdateForm = require('./routes/bookUpdateForm');
+var bookUpdate = require('./routes/bookUpdate');
+var bookDelete = require('./routes/bookDelete');
+
+var mangerAddForm = require('./routes/mangerAddForm');
+var mangerAdd = require('./routes/mangerAdd');
+var mangerListByPage = require('./routes/mangerListByPage');
+var mangerListSearchByName = require('./routes/mangerListSearchByName');
+var mangerUpdateForm = require('./routes/mangerUpdateForm');
+var mangerUpdate = require('./routes/mangerUpdate');
+var mangerDelete = require('./routes/mangerDelete');
+
+var mangerLogin = require('./routes/mangerLogin');
+var mangerLoginSuccess = require('./routes/mangerLoginSuccess');
+var mangerLoginFail = require('./routes/mangerLoginFail');
+var mangerLogout = require('./routes/mangerLogout');
+//-------------------------------------------------------
 
 
 
@@ -137,6 +175,7 @@ app.use('/personal2',personal2);
 app.use('/personal3',personal3);
 app.use('/personalUpdate',personalUpdate);
 app.use('/noteAdd',noteAdd);
+app.use('/noteDelete',noteDelete);
 app.use('/messAdd',messAdd);
 app.use('/notedEdit',notedEdit);
 app.use('/collectbook',collectbook);
@@ -185,7 +224,43 @@ app.use('/pointrank2016',pointrank2016);
 // 增加以下的app.use() index中的register
 //-------------------------------------------------------
 app.use('/register', register);
+//-------------------------------------------------------
+// 增加以下的app.use() 後端
+//-------------------------------------------------------
+app.use('/takeBookMangerIndex', takeBookMangerIndex);
+app.use('/mangerIndex', mangerIndex);
 
+app.use('/mangerRules', mangerRules);
+app.use('/OneRule', OneRule);
+app.use('/ruleDelete', ruleDelete);
+app.use('/ruleModifyForm', ruleModifyForm);
+app.use('/ruleModify', ruleModify);
+app.use('/ruleAddForm', ruleAddForm);
+app.use('/ruleAdd', ruleAdd);
+
+app.use('/bookAddForm', bookAddForm);
+app.use('/bookAdd', bookAdd);
+app.use('/bookListByPageManger', bookListByPageManger);
+app.use('/bookListSearchByName', bookListSearchByName);
+app.use('/bookOneItem', bookOneItem);
+app.use('/bookUpdateForm', bookUpdateForm);
+app.use('/bookUpdate', bookUpdate);
+app.use('/bookDelete', bookDelete);
+
+app.use('/mangerAddForm', mangerAddForm);
+app.use('/mangerAdd', mangerAdd);
+app.use('/mangerListByPage', mangerListByPage);
+app.use('/mangerListSearchByName', mangerListSearchByName);
+app.use('/mangerUpdateForm', mangerUpdateForm);
+app.use('/mangerUpdate', mangerUpdate);
+app.use('/mangerDelete', mangerDelete);
+
+app.use('/mangerLogin', mangerLogin);
+app.use('/mangerLoginSuccess', mangerLoginSuccess);
+app.use('/mangerLoginFail', mangerLoginFail);
+app.use('/mangerLogout', mangerLogout);
+
+//-------------------------------------------------------
 
 
 // catch 404 and forward to error handler

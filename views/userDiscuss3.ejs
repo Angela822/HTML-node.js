@@ -41,7 +41,7 @@
 										<a href="#" class="icon fa-bar-chart-o"><span>排行榜</span></a>
 										<ul>
 											<li><a href="/userbookRank">熱門書排行榜</a></li>
-											<li><a href="/userpointRank">愛閱點排行榜</a></li>
+											<li><a href="/userpointRank">TB排行榜</a></li>
 										</ul>
 									</li>
                                    	<!-------------------------------------------------------------------------->
@@ -111,8 +111,22 @@
                                             出版社：<%= data[0].publisher %><br />
                                             出版日期：<%= myDateFormat(data[0].date) %><br />
                                             語言：<%= data[0].language %><br/>
-                                            分享：LINE,FB</p>
-										<a href="http://webpac.ntub.edu.tw/webpacIndex.jsp" class="button">借閱</a>
+											分享：LINE,FB</p>
+											<form onsubmit="return confirm('是否確定收藏?');" role="form" method="get" enctype="multipart/form-data" action="/collectbook">
+											
+												<input type="hidden" value = "<%= data[0].bookNo %>" name="bookNo">
+	
+												<body onload="ShowTime()">
+														
+															<input type="hidden" value = "showbox" name="date">
+														
+												</body>
+	
+												<button type="submit" class="btnbtn-default" >
+														收藏
+												</button>
+											</form> 
+										
 									</li>
 									
 									<!-------------------------->
@@ -151,7 +165,7 @@
 									<!-- ▲▲商品4到此為止▲▲ -->
 									</ul>
 									
-									<p class="pagetop"><a href="/discuss3">TOP ↑</a></p>
+									<p class="pagetop"><a href="/userDiscuss3">TOP ↑</a></p>
 									
 								</div>
 

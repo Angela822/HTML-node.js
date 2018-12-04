@@ -44,14 +44,14 @@ router.get('/', function(req, res, next) {
                 noteData=results;
             }
 		
-		pool.query('select a.noteTitle, b.userid, b.mesContent ,b.date ,c.avatar ,c.nickName FROM note a, message b ,users c WHERE a.noteid = b.noteid AND c.userid = b.userid AND a.userid = ? AND b.userid!=? AND year(b.date)=YEAR(NOW())And month(b.date)=MONTH(NOW()) And day(b.date)=DAY(NOW())', [userid,userid], function(err, results, fields){
+		pool.query('select a.noteTitle, b.userid, b.mesContent ,b.date ,c.avatar ,c.nickName FROM note a, message b ,users c WHERE a.noteid = b.noteid AND c.userid = b.userid AND a.userid = ? AND b.userid!=? AND year(b.date)=YEAR(NOW())And month(b.date)=MONTH(NOW()) And day(b.date)=DAY(NOW()) ORDER BY date DESC', [userid,userid], function(err, results, fields){
             if (err) {
                 messengeData=[];
             }else{
                 messengeData=results;
             }
 			
-		pool.query('SELECT a.bookNo,b.bookName,b.author,b.publisher,b.picture FROM collection a LEFT JOIN book AS b ON a.bookNo=b.bookNo where userid=?', [userid], function(err, results, fields){
+		pool.query('SELECT a.bookNo,a.date,b.bookName,b.author,b.publisher,b.picture FROM collection a LEFT JOIN book AS b ON a.bookNo=b.bookNo where userid=? ORDER BY date DESC', [userid], function(err, results, fields){
             if (err) {
                 collectionData=[];
             }else{

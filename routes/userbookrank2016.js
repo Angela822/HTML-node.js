@@ -9,28 +9,24 @@ var pool = require('./lib/db.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    var pointData;
-    var rankData;
-	pool.query('SELECT a.point, a.rankNo,b.avatar,b.nickName,c.title,c.picture FROM rankperson a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN title AS c ON c.userid=b.userid WHERE a.serNo%2<>0 AND a.date LIKE "2016%" ', function(err, results) {       
-		if (err) {
-			pointData=[];
+   /* pool.query('select * from rankbook', function (error, results, fields) {
+        if (error){
+            res.render('bookrank', {bookdata:[]});
+        }else{
+            res.render('bookrank', {bookdata:results});
+        } 
+	});	*/
+	pool.query('SELECT a.rankNo,a.date,a.serNo,b.bookNo,b.bookName,b.picture,b.author,b.publisher,b.content FROM rankbook a INNER JOIN book b ON a.bookNo=b.bookNo WHERE a.date between "2016-01-01" and "2016-12-31" GROUP BY serNo ', function(error, results, fields) {       
+		if (error) {
+			res.render('userbookrank2016', {data:[]});
 		}else{
-			pointData=results;
+			res.render('userbookrank2016', {data:results});
 		}
-        pool.query('SELECT a.point, a.rankNo,b.avatar,b.nickName,c.title,c.picture FROM rankperson a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN title AS c ON c.userid=b.userid WHERE a.serNo%2=0 AND a.date LIKE "2016%"', function(err, results) {
-            if (err) {
-                rankData=[];
-            }else{
-                rankData=results;
-            }
-
-            //---------------------------------   
-            // 將供應商及產品型態資料一起送出
-            //---------------------------------
-            res.render('userpointrank2016', {pointData:pointData, rankData:rankData});
-       }); 
-			
+		
     });
 });
 
 module.exports = router;
+
+
+

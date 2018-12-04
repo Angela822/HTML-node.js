@@ -41,7 +41,7 @@
 										<a href="#" class="icon fa-bar-chart-o"><span>排行榜</span></a>
 										<ul>
 											<li><a href="/userbookRank">熱門書排行榜</a></li>
-											<li><a href="/userpointRank">文青度排行榜</a></li>
+											<li><a href="/userpointRank">TB排行榜</a></li>
 										</ul>
 									</li>
                                    	<!-------------------------------------------------------------------------->
@@ -115,17 +115,17 @@
 							<li id="All">
 								<ul>
 									<li class="clearfix">
-											<p class="picBook"><img src="<%= data[0].picture %>" width="180" height="200"</p>
-                                        <p class="type"><a href="/discuss#Simplified Chinese"><%= data[0].type %></a></p>
-										<h3><%= data[0].bookName %></h3>
-										<p class="word">作者：<%= data[0].author %><br />
-                                            出版社：<%= data[0].publisher %><br />
-                                            出版日期：<%=myDateFormat(data[0].date) %><br />
-                                            語言：<%= data[0].language %><br/>
+											<p class="picBook"><img src="<%= bookData[0].picture %>" width="180" height="200"</p>
+                                        <p class="type"><a href="/discuss#Simplified Chinese"><%= bookData[0].type %></a></p>
+										<h3><%= bookData[0].bookName %></h3>
+										<p class="word">作者：<%= bookData[0].author %><br />
+                                            出版社：<%= bookData[0].publisher %><br />
+                                            出版日期：<%=myDateFormat(bookData[0].date) %><br />
+                                            語言：<%= bookData[0].language %><br/>
                                             分享：LINE,FB</p>
-										<form onsubmit="return confirm('是否確定更改?');" role="form" method="get" enctype="multipart/form-data" action="/collectbook">
+										<form onsubmit="return confirm('是否確定收藏?');" role="form" method="get" enctype="multipart/form-data" action="/collectbook">
 											
-												<input type="hidden" value = "<%= data[0].bookNo %>" name="bookNo">
+												<input type="hidden" value = "<%= bookData[0].bookNo %>" name="bookNo">
 	
 												<body onload="ShowTime()">
 														
@@ -142,35 +142,61 @@
 							</li>
 							<!-------------------------->
                             	<p class="title">文章導讀</p>
-                                <!-------------------------->
-								<% for(var i=0; i<data.length; i++) {%>
-                                <li class="clearfix">
-									<p class="photo"><img src="<%= "images/" + data[i].avatar%>"width="120" height="120"/></p>
-									<h3><%= data[i].noteTitle %></h3>
-									<p class="text"><%= data[i].noteContent %></p>
-                                    <a href="#" class="icon">
+								<!-------------------------->
+								<% for(var i=0; i<noteData.length; i++) {%>
+								<li class="clearfix">
+									<p class="photo"><img src="<%= "images/" + noteData[i].avatar%>"width="120" height="120"/></p>
+									<h3><%= noteData[i].noteTitle %></h3>
+									<p class="text"><%= noteData[i].noteContent %></p>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<%= noteData[i].nickName %><a href="#" class="icon">
                                        3 <span class="glyphicon glyphicon-comment"></span>
                                     </a> 
-									<p class="date"><%= myDateFormat(data[i].date) %></p>	
+									<p class="date"><%= myDateFormat(noteData[i].date) %></p>	
 								</li>
-								<% } %> 
+								<% } %>
+								
+								
+								
+								<% for(var i=0; i<commData.length; i++) {%>
 								<li class="clearfix">
-									<p class="photo"><img src="<%= "images/" +avatar %>" width="80" height="80"/></p>
-									<h3><%= nickName %></h3>
-									<p class="text message">貓貓蟲咖波好可愛啊<br/>
-                                        感謝推薦<br/>
-                                        來去收藏一番!
-									</p>
-                                     
-									<p class="text"><a href="/discuss3">讚</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/discuss3"><button type="submit"  >
-														回覆
-												</button></a></p>
+									<p class="photo"><img src="<%= "images/" + commData[i].avatar%>"width="80" height="80"/></p>
+									<h3><%= commData[i].nickName %></h3>
+									<p class="text message"><%= commData[i].mesContent %></p>
+									<p class="date"><%= myDateFormat(commData[i].date) %></p>	
+								</li>
+								<% } %>
+								
+								<form onsubmit="return confirm('是否確定留言?');" role="form" method="get" enctype="multipart/form-data" action="/messAdd">
+									<div class="row">
+										<div class="col-md-12"> 
+									<p class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									
+									<div class="form-group"> 
+											
+										<textarea name="mesContent" cols="80" rows="3"> </textarea>
+									
+									</div>
+									
 										
+									<input type="hidden" class="form-control" id="noteid" value="<%= noteData[0].noteid %>" name="noteid"/>
+
+									<body onload="ShowTime()">
+										<form id="form1" runat="server">
+											<input type="hidden" value = "showbox" name="date">
+										</form>
+									</body>
+									<button type="submit" class="btn btn-default">
+										回覆文章
+									</button></p>
+								</div>
+							</div>
+								</form> 		
 									
 								</li>
-								
+								 
 							</ul>
-                            <p class="pagetop"><a href="/discuss2">TOP ↑</a></p>
+                            <p class="pagetop"><a href="/userDiscuss2">TOP ↑</a></p>
 								</div>
 
 						</div>

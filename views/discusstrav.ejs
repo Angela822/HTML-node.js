@@ -113,7 +113,7 @@
 										<a href="#" class="icon fa-bar-chart-o"><span>排行榜</span></a>
 										<ul>
 											<li><a href="/bookrank">熱門書排行榜</a></li>
-											<li><a href="/pointrank">文青度排行榜</a></li>
+											<li><a href="/pointrank">TB排行榜</a></li>
 										</ul>
 									</li>
                                    	<!-------------------------------------------------------------------------->
@@ -166,7 +166,7 @@
 												<li><a href="/discussfood">飲食料理 Dietary Foodk</a></li>	
 												<li><a href="/discusspsy">心理勵志 Psychological Motivation</a></li>
 												<li><a href="/discussedu">教育/親子教養,Parent and child Education</a></li>
-												<li><a href="/discusslan">語言/字辭典,languageK</a></li>
+												<li><a href="/discusslan">語言/字辭典,language</a></li>
 												<li><a href="/discussart">藝術設計,Art Design</a></li>
 												<li><a href="/discusslif">生活風格,Life Style</a></li>
 												
@@ -181,29 +181,29 @@
 										<ul id="serch">
 										<!-- ▼▼分類1從此開始▼▼ -->
 										<li id="All">
-											<p class="title">全部 ALL</p>
+											<p class="title">旅遊 travel</p>
 											<ul method="get" action="/discuss2">
 												<!-- ▼▼項目1從此開始▼▼ -->
 												<% for(var i=0; i<data.length; i++) {%>
 													<li class="clearfix">
 														<p class="photo"><img src="images/<%= data[i].avatar %>" width="120" height="120"></p>
 														<p class="type"><a href="#Simplified Chinese"><%= data[i].type %></a></p>
-														<h3><a href="/discuss3?bookName=<%= data[i].bookName %>"><%= data[i].bookName %></a></h3>
+														<h3><a href="/discuss3?bookNo=<%= data[i].bookNo %>"><%= data[i].bookName %></a></h3>
 														<p class="text"><%= data[i].noteContent %></p>
 														<span type="text" id="show"></span>
 														<i onclick="like()" class="glyphicon glyphicon-thumbs-up"></i>
-														3<i onclick="comment()" class="glyphicon glyphicon-comment"></i> 
+														3
 														
 														   
 													   
 														<p class="date"><%= myDateFormat(data[i].date) %></p>
-														<a href="/discuss2?bookName=<%= data[i].bookName %>" class="button">More</a>		
+														<a href="/discuss2?bookNo=<%= data[i].bookNo %>" class="button">More</a>		
 													</li>
 												<% } %> 
 												
 												<!-- ▲▲項目1到此為止▲▲ -->
 											</ul>
-											<p class="pagetop"><a href="/discuss">TOP ↑</a></p>
+											<p class="pagetop"><a href="/discusstrav">TOP ↑</a></p>
 										</li>
 										<!-- ▲▲分類1到此為止▲▲ -->
 										</ul>

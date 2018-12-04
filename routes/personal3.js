@@ -14,6 +14,7 @@ var authorize = require('./lib/authorize.js');
 /* GET home page. */
 router.get('/', function(req, res, next) {
     var userid=req.session.userid;
+    var noteTitle=req.param('noteTitle');
     var personalData;
     var noteData;
     var messengeData;
@@ -34,14 +35,14 @@ router.get('/', function(req, res, next) {
         }else{
             personalData=results;
         }
-        pool.query('SELECT a.bookNo,a.noteId,a.noteContent,a.noteTitle,a.date,b.picture FROM note a LEFT JOIN book AS b ON a.bookNo=b.bookNo where userid=? GROUP BY noteId', [userid], function(err, results, fields) {
+        pool.query('SELECT a.bookNo,a.noteid,a.noteContent,a.noteTitle,a.date,b.bookName,b.picture FROM note a LEFT JOIN book AS b ON a.bookNo=b.bookNo where userid=? && noteTitle=? GROUP BY noteid', [userid,noteTitle], function(err, results, fields) {
             if (err) {
                 noteData=[];
             }else{
                 noteData=results;
             }
 
-        pool.query('SELECT a.mesContent, a.date,b.nickName,b.avatar,c.noteTitle FROM message a LEFT JOIN users AS b ON a.userid=b.userid LEFT JOIN note AS c ON c.userid=b.userid where c.userid=? ', [userid], function(err, results, fields){
+        pool.query('select a.noteTitle, b.userid, b.mesContent ,b.date ,c.avatar ,c.nickName FROM note a, message b ,users c WHERE a.noteid = b.noteid AND c.userid = b.userid AND a.userid = ? AND b.userid!=? AND year(b.date)=YEAR(NOW())And month(b.date)=MONTH(NOW()) And day(b.date)=DAY(NOW())', [userid,userid], function(err, results, fields){
             if (err) {
                 messengeData=[];
             }else{
@@ -55,7 +56,7 @@ router.get('/', function(req, res, next) {
             bookData=results;
         }
 		
-		pool.query('SELECT bookName,picture,SUBSTRING(content,1,30),1,30 FROM book ORDER BY RAND() LIMIT 1', function(err, results, fields) {
+		pool.query(' SELECT serNo,bookName,picture, SUBSTRING(content,1,200) as content FROM book WHERE serNo IS NOT NULL and bookName IS NOT NULL and picture IS NOT NULL and content IS NOT NULL ORDER BY RAND() LIMIT 1', function(err, results, fields) {
             if (err) {
                 booksData=[];
             }else{

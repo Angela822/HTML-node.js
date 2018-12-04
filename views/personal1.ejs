@@ -48,7 +48,7 @@
 										<a href="#" class="icon fa-bar-chart-o"><span>排行榜</span></a>
 										<ul>
 											<li><a href="/userbookRank">熱門書排行榜</a></li>
-											<li><a href="/userpointRank">文青度排行榜</a></li>
+											<li><a href="/userpointRank">TB排行榜</a></li>
 										</ul>
 									</li>
                                    	<!-------------------------------------------------------------------------->
@@ -89,7 +89,7 @@
 																<h3><a href="/personal0 %>"><%= nickName %></a></h3>
                                                                 <p class="persign"><%= sign %></p>
                                                                 <!--<span class="level">Lv.20</span>-->
-																<a href="\personal2" class="button">編輯個資</a>
+																
 															</header>
                                                             <p class="clear"></p>
 														</article>
@@ -161,9 +161,7 @@
 													<h2><%= noteData[i].noteTitle %></h2>
 													<textarea rows="3" max-rows="20" readonly value="txt"><%= noteData[i].noteContent %></textarea>
 													
-													<a href="/discuss3" class="button">前往查看...</a>&nbsp;
-													<a href="\personal3" class="button">&nbsp;刪除&nbsp;</a>
-													<a href="\personal3" class="button">&nbsp;編輯&nbsp;</a>
+													
 													<p>
 													最終修改時間 : <%= myDateFormat(noteData[i].date) %>
 													</p>
