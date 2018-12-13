@@ -118,11 +118,8 @@ var mangerLoginFail = require('./routes/mangerLoginFail');
 var mangerLogout = require('./routes/mangerLogout');
 //-------------------------------------------------------
 
-
-
-
 var app = express();
-
+require('./ssl/sslLicense')(app);
 //-----------------------------------------
 // 增加使用session及uuid
 //-----------------------------------------
