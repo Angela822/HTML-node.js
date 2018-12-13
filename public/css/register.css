@@ -1,0 +1,153 @@
+/*register button*/
+			/* Full-width input fields */
+			input[type=text], input[type=password] {
+				width: 100%;
+				padding: 15px;
+				margin: 5px 0 22px 0;
+				display: inline-block;
+				border: none;
+				background: #f1f1f1;
+			}
+
+			/* Add a background color when the inputs get focus */
+			input[type=text]:focus, input[type=password]:focus {
+				background-color: #ddd;
+				outline: none;
+			}
+
+			/* Set a style for all buttons */
+			button {
+				background-color: #C37267;
+				color: white;
+				padding: 10px 20px;
+				margin: 8px 0;
+				border: none;
+				cursor: pointer;
+				width: 100%;
+				opacity: 0.9;
+			}
+
+			button:hover {
+				opacity:1;
+				background-color: rgba(255, 200, 193,0.7);
+			}
+
+			.register{
+				width:100%;
+				margin-top:5px;
+				margin-bottom:13px;
+				background-color: #ed786a;
+				padding: 10px 308.5px;
+			}
+
+			.register:hover{
+				background-color: rgba(255, 200, 193,0.8);
+			}
+
+			.foot a{
+			}
+
+			.foot{
+				margin: 10px -15px -15px -15px;
+			}
+
+			/* Extra styles for the cancel button */
+			/*.cancelbtn {
+				padding: 14px 20px;
+				background-color: #f44336;
+			}*/
+
+			/* Float cancel and signup buttons and add an equal width */
+			.cancelbtn, .signupbtn {
+			float: left;
+			width: 50%;
+			}
+
+			/* Add padding to container elements */
+			.reContainer {
+                padding: 0px;
+                margin:-10px 20% 5% 20%;
+			}
+
+            .inner{
+                background-color: #ffff;
+                padding: 50px 70px;
+			}
+			
+			.inner .tooltip{
+				margin-top: -20px;
+				float: left;
+				font-size: 14px;
+			}
+
+			.inner .nickName{
+				margin-top: 10px;
+			}
+
+			.inner .psd{
+				margin-top:30px;
+			}
+
+			.inner .pswRepeat{
+				margin-top:30px;
+			}
+
+			/* The Modal (background) */
+			.modal2 {
+				display: none; /* Hidden by default */
+				position: fixed; /* Stay in place */
+				z-index: 1; /* Sit on top */
+				left: 0;
+				top: 0;
+				width: 100%; /* Full width */
+				height: 100%; /* Full height */
+				overflow: auto; /* Enable scroll if needed */
+				background-color: rgba(0,0,0,0.4);
+                padding-top: 50px;
+			}
+
+			/* Modal Content/Box */
+			.modal2-content {
+				margin: 0px auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+                width: 80%; /* Could be more or less, depending on screen size */
+            }
+            
+            .signupbtn{
+                float:right;
+            }
+
+			/* Style the horizontal ruler */
+			hr {
+				border: 1px solid #f1f1f1;
+				margin-bottom: 25px;
+			}
+			
+			/* The Close Button (x) */
+			.close {
+				position: absolute;
+				right: 35px;
+				top: 15px;
+				font-size: 40px;
+				font-weight: bold;
+                color: #f1f1f1;
+			}
+
+			.close:hover,
+			.close:focus {
+				color: #f44336;
+				cursor: pointer;
+			}
+
+			/* Clear floats */
+			.clearfix::after {
+				content: "";
+				clear: both;
+				display: table;
+			}
+
+			/* Change styles for cancel button and signup button on extra small screens */
+			@media screen and (max-width: 300px) {
+				.cancelbtn, .signupbtn {
+				width: 100%;
+				}
+			}
